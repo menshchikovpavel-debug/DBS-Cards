@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autoservis Praha | DBS Autoservis &amp; Detailing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600;6..12,700&family=Ubuntu:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   TOKENS  (снято с dbservice.cz + рекламных материалов DBS)
+   ========================================================= */
+:root{
+  --bg:#181A1C;
+  --surface:#1E2021;
+  --surface-2:#17191A;
+  --line:#292C2D;
+  --text:#FFFFFF;
+  --muted:#8E9193;
+  --muted-2:#B9BCBE;
+  --red:#E5252B;
+  --red-2:#FF3B3B;
+  --red-glow:rgba(229,37,43,.55);
+  --font:Avenir,"Avenir Next","Nunito Sans",Arial,sans-serif;
+  --font-display:Ubuntu,Avenir,"Nunito Sans",Arial,sans-serif;
+  --radius:24px;
+  --container:900px;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+.container{width:100%;max-width:var(--container);margin:0 auto;padding:0 16px}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.site-header{position:fixed;inset:0 0 auto 0;z-index:40;display:flex;align-items:center;gap:14px;padding:22px 24px;pointer-events:none}
+.site-header > *{pointer-events:auto}
+.site-header .logo img{height:24px;width:auto}
+.nav-toggle{width:32px;height:32px;display:grid;place-items:center;border-radius:10px;opacity:.8;transition:opacity .2s,background .2s}
+.nav-toggle:hover{opacity:1;background:rgba(255,255,255,.06)}
+.nav-toggle img{width:19px}
+.site-header .btn-book-mob{display:none;margin-left:auto}
+.menu{position:fixed;top:0;left:0;bottom:0;width:280px;z-index:45;background:#121314;border-right:1px solid var(--line);padding:80px 28px 28px;transform:translateX(-100%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.menu.is-open{transform:none}
+.menu a{display:block;padding:10px 0;font-size:18px;font-weight:500;color:var(--muted-2)}
+.menu a:hover{color:#fff}
+.menu .langs{display:flex;gap:14px;margin-bottom:18px;font-size:13px;color:var(--muted)}
+.menu .langs a{font-size:13px;padding:0}
+
+/* =========================================================
+   HERO (секция 1)
+   ========================================================= */
+.hero{position:relative;min-height:780px;padding:70px 0 90px;overflow:hidden;isolation:isolate}
+.hero__media{position:absolute;top:-81px;left:50%;z-index:-2;width:1700px;height:956px;transform:translateX(-46%)}
+.hero__fallback,.hero__video{position:absolute;inset:0;width:100%;height:100%}
+.hero__fallback{background:url('https://res.cloudinary.com/dnsw5tw5r/image/upload/v1774701681/%D0%93%D1%80%D1%83%D0%B7%D0%BE%D0%B2%D0%B8%D0%BA_%D1%81%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%B8_1__0005_result_ocyfim.avif') center/contain no-repeat;opacity:0;transition:opacity .3s}
+.hero__fallback.is-visible{opacity:1}
+.hero__video{object-fit:contain;opacity:0;transition:opacity .4s}
+.hero__video.is-ready{opacity:1}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(90deg,rgba(24,26,28,.9) 0%,rgba(24,26,28,.55) 35%,rgba(24,26,28,0) 60%),
+  linear-gradient(0deg,var(--bg) 0%,rgba(24,26,28,0) 30%)}
+.hero__content{max-width:540px}
+.hero h1{font-size:36px;line-height:1.2;font-weight:500;margin:0 0 16px;letter-spacing:-.01em}
+.hero__sub{font-size:18px;line-height:1.45;margin:0 0 20px;font-weight:400}
+.hero__lead{font-size:14px;line-height:1.55;color:var(--muted);margin:0 0 28px;max-width:470px}
+.hero__cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 20px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;transition:transform .2s,box-shadow .2s,background .2s}
+.btn-white{background:#fff;color:#111}
+.btn-white:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(255,255,255,.15)}
+.btn-ghost{border:1px solid var(--line);background:rgba(23,25,26,.7);color:#fff;text-transform:none;letter-spacing:0;font-size:13px;font-weight:500;backdrop-filter:blur(6px)}
+.btn-ghost:hover{border-color:rgba(229,37,43,.6);box-shadow:0 0 0 4px rgba(229,37,43,.12)}
+.btn-ghost .dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red)}
+.promo{margin-top:40px;display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:600px;padding:22px 24px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(24,26,28,.55);backdrop-filter:blur(8px)}
+.promo h2{margin:0 0 10px;font-size:16px;line-height:1.35;font-weight:600;text-transform:uppercase}
+.promo p{margin:0;font-size:14px;line-height:1.5;color:var(--muted-2)}
+
+/* =========================================================
+   CO UMÍME (секция 2)
+   ========================================================= */
+.services{padding:40px 0 120px}
+.services h2{font-size:32px;font-weight:300;margin:0 0 8px}
+.services .lead{color:var(--muted);font-size:13px;margin:0 0 26px}
+.tabs{display:inline-flex;gap:4px;padding:4px;border-radius:24px;background:var(--surface)}
+.tab{height:37px;padding:6px 14px;border-radius:24px;font-size:14px;font-weight:500;color:#fff;border:1px solid transparent;transition:background .2s,border-color .2s}
+.tab.is-active{background:var(--surface-2);border-color:var(--line)}
+.pane{display:none;margin-top:28px}
+.pane.is-active{display:block;animation:fadeUp .4s ease both}
+.group-title{font-size:18px;font-weight:500;margin:0 0 14px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.group + .group{margin-top:44px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.svc{display:flex;flex-direction:column;justify-content:space-between;min-height:160px;padding:20px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--line);transition:border-color .25s,transform .25s,box-shadow .25s}
+.svc:hover{border-color:#3a3e40;transform:translateY(-2px);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.svc__head img{width:24px;height:24px;margin-bottom:14px}
+.svc h3{margin:0;font-size:16px;font-weight:500}
+.svc__price{display:flex;align-items:center;justify-content:space-between}
+.svc__price p{margin:0;font-size:14px;padding:6px 12px;border-radius:999px;background:var(--surface-2)}
+.svc__price img{width:20px;opacity:.45;transition:opacity .2s,transform .2s}
+.svc:hover .svc__price img{opacity:1;transform:translateX(3px)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* =========================================================
+   Плавающие контакты (как на сайте)
+   ========================================================= */
+.contacts-float{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.contacts-float .row{display:flex;gap:10px}
+.cf-btn{width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.35);transition:transform .2s}
+.cf-btn:hover{transform:translateY(-2px)}
+.cf-btn svg{width:20px;height:20px;fill:#111}
+.cf-phone{background:#fff;color:#111;font-weight:700;font-size:15px;padding:9px 14px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+
+/* =========================================================
+   АССИСТЕНТ — launcher
+   ========================================================= */
+.dbs-launcher{position:fixed;left:20px;bottom:20px;z-index:60;display:flex;align-items:center;gap:10px;height:48px;padding:0 18px 0 6px;border-radius:999px;background:rgba(18,19,20,.92);border:1px solid rgba(229,37,43,.45);box-shadow:0 0 0 1px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.45),0 0 26px rgba(229,37,43,.25);font-size:14px;font-weight:600;backdrop-filter:blur(10px);transform:translateY(0);opacity:1;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .25s}
+.dbs-launcher.is-hidden{transform:translateY(120%);opacity:0;pointer-events:none}
+.dbs-launcher .mark{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 30% 30%,#ff5a5a,var(--red) 55%,#9b1015);box-shadow:0 0 16px var(--red-glow)}
+.dbs-launcher .mark svg{width:18px;height:18px;stroke:#fff}
+.dbs-launcher .pulse{position:absolute;left:6px;top:6px;width:36px;height:36px;border-radius:50%;border:2px solid var(--red);animation:pulse 2.2s ease-out infinite;pointer-events:none}
+@keyframes pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.8);opacity:0}}
+
+/* =========================================================
+   АССИСТЕНТ — модалка
+   ========================================================= */
+.dbs-asst{position:fixed;inset:0;z-index:70;display:grid;grid-template-columns:minmax(0,1fr);place-items:center;padding:16px;visibility:hidden;pointer-events:none}
+.dbs-asst.is-open{visibility:visible;pointer-events:auto}
+.dbs-asst__backdrop{position:absolute;inset:0;background:rgba(6,7,8,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;transition:opacity .35s}
+.dbs-asst.is-open .dbs-asst__backdrop{opacity:1}
+.dbs-asst__panel{position:relative;width:100%;min-width:0;max-width:420px;max-height:calc(100vh - 32px);display:flex;flex-direction:column;border-radius:32px;background:linear-gradient(180deg,#1b1d1f,#141516);border:1px solid #2c2f31;box-shadow:0 40px 100px rgba(0,0,0,.6),0 0 80px rgba(229,37,43,.12);transform:translateY(24px) scale(.96);opacity:0;transition:transform .45s cubic-bezier(.2,.9,.25,1.15),opacity .3s}
+.dbs-asst.is-open .dbs-asst__panel{transform:none;opacity:1}
+.dbs-asst__head{display:flex;align-items:center;gap:12px;padding:18px 18px 12px 20px}
+.dbs-asst__avatar{height:36px;padding:0 10px;flex:none;border-radius:12px;display:grid;place-items:center;background:#0f1011;border:1px solid var(--line)}
+.dbs-asst__avatar img{height:14px}
+.dbs-asst__who{flex:1;min-width:0}
+.dbs-asst__who b{display:block;font-size:14px;font-weight:600}
+.dbs-asst__who span{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+.dbs-asst__who span::before{content:"";width:6px;height:6px;border-radius:50%;background:#3ddc84;box-shadow:0 0 8px #3ddc84}
+.icon-btn{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#232527;border:1px solid var(--line);transition:background .2s,transform .2s}
+.icon-btn:hover{background:#2c2f31}
+.icon-btn svg{width:16px;height:16px;stroke:#fff}
+.icon-btn[hidden]{display:none}
+.dbs-asst__progress{height:3px;margin:0 20px;border-radius:3px;background:#26292b;overflow:hidden}
+.dbs-asst__progress i{display:block;height:100%;width:10%;border-radius:3px;background:linear-gradient(90deg,#9b1015,var(--red),var(--red-2));box-shadow:0 0 10px var(--red-glow);transition:width .5s cubic-bezier(.2,.8,.2,1)}
+
+/* stage + стопка карт */
+.dbs-stage{position:relative;height:452px;margin:18px 20px 0;flex:none}
+.dbs-ghost{position:absolute;inset:0;border-radius:28px;background:#1a1c1d;border:1px solid #26292b;transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .45s}
+.dbs-ghost.g1{transform:translateY(14px) scale(.95);opacity:.7}
+.dbs-ghost.g2{transform:translateY(28px) scale(.9);opacity:.35}
+.dbs-stage.is-final .dbs-ghost{opacity:0;transform:translateY(0) scale(.98)}
+
+.sc{position:absolute;inset:0;border-radius:28px;overflow:hidden;background:#121314;border:1px solid #33363a;box-shadow:0 24px 50px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.06);display:flex;flex-direction:column;padding:22px;touch-action:pan-y;user-select:none;-webkit-user-select:none;will-change:transform;transform-origin:50% 90%}
+.sc.is-drag{cursor:grabbing}
+.sc.is-swipe{cursor:grab}
+.sc.enter{animation:cardIn .45s cubic-bezier(.2,.8,.2,1) both}
+@keyframes cardIn{from{transform:translateY(14px) scale(.95);opacity:.5}to{transform:none;opacity:1}}
+.sc.nudge{animation:nudge 1.6s ease-in-out .2s both}
+@keyframes nudge{0%,100%{transform:none}20%{transform:translateX(-26px) rotate(-3deg)}45%{transform:translateX(26px) rotate(3deg)}65%{transform:none}}
+
+/* фон карты: диагональная текстура бренда + красное свечение */
+.sc__bg{position:absolute;inset:0;z-index:0;pointer-events:none;background:
+  radial-gradient(120% 70% at 85% -10%,rgba(229,37,43,.55),rgba(229,37,43,0) 55%),
+  radial-gradient(90% 60% at -10% 110%,rgba(229,37,43,.18),rgba(229,37,43,0) 60%),
+  repeating-linear-gradient(115deg,rgba(255,255,255,.028) 0 14px,rgba(255,255,255,0) 14px 40px),
+  linear-gradient(180deg,#1a1b1d,#0e0f10)}
+.sc__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.05),transparent 30%)}
+.sc > *:not(.sc__bg):not(.sc__stamp){position:relative;z-index:1}
+
+.sc__top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.sc__icon{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.35),0 0 30px rgba(229,37,43,.25)}
+.sc__icon svg{width:24px;height:24px;stroke:#111}
+.sc__eyebrow{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
+.sc__title{font-family:var(--font-display);font-weight:700;font-size:30px;line-height:1.08;letter-spacing:-.01em;margin:0 0 12px}
+.sc__title em{font-style:normal;color:var(--red-2);text-shadow:0 0 18px rgba(255,59,59,.55),0 0 2px rgba(255,59,59,.6)}
+.sc__text{font-size:15px;line-height:1.5;color:#d4d6d8;margin:0}
+.sc__spacer{flex:1}
+
+/* визуальные чипы (реф. «Card UI concept») */
+.sc__chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.chip{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 11px 0 6px;border-radius:999px;font-size:12px;font-weight:500;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(6px)}
+.chip img{width:18px;height:18px;padding:2px;border-radius:50%;background:rgba(0,0,0,.35)}
+.chip.red{border-color:rgba(229,37,43,.5);background:rgba(229,37,43,.14)}
+
+/* легенда свайпа внутри карты */
+.sc__legend{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lg{padding:12px 12px 11px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);transition:background .2s,border-color .2s,transform .2s}
+.lg b{display:flex;align-items:center;gap:6px;font-size:14px;font-weight:700}
+.lg small{display:block;margin-top:3px;font-size:12px;color:var(--muted)}
+.lg--r{text-align:right}
+.lg--r b{justify-content:flex-end}
+.lg svg{width:14px;height:14px;stroke:currentColor;flex:none}
+.lg--r{border-color:rgba(229,37,43,.35);background:rgba(229,37,43,.1)}
+.sc[data-lean="left"] .lg--l{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.35);transform:scale(1.03)}
+.sc[data-lean="right"] .lg--r{background:rgba(229,37,43,.3);border-color:var(--red);transform:scale(1.03)}
+
+/* штампы при перетаскивании */
+.sc__stamp{position:absolute;top:26px;z-index:3;padding:8px 14px;border-radius:12px;font-family:var(--font-display);font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:.02em;opacity:0;pointer-events:none;border:3px solid}
+.sc__stamp--l{right:22px;transform:rotate(12deg);color:#fff;border-color:#fff;background:rgba(0,0,0,.35)}
+.sc__stamp--r{left:22px;transform:rotate(-12deg);color:var(--red-2);border-color:var(--red-2);background:rgba(0,0,0,.35);text-shadow:0 0 12px rgba(255,59,59,.6);box-shadow:0 0 22px rgba(229,37,43,.45)}
+
+/* формы внутри карты */
+.sc.is-form{padding:22px 22px 20px}
+.sc.is-form .sc__title{font-size:26px}
+.field{margin-top:14px}
+.field label{display:block;font-size:12px;font-weight:600;color:var(--muted-2);margin:0 0 6px}
+.input,.textarea{width:100%;border-radius:16px;border:1px solid #33373a;background:rgba(0,0,0,.35);color:#fff;font:inherit;font-size:15px;padding:12px 14px;outline:none;transition:border-color .2s,box-shadow .2s}
+.input:focus,.textarea:focus{border-color:var(--red);box-shadow:0 0 0 4px rgba(229,37,43,.18)}
+.textarea{resize:none;height:130px;line-height:1.45}
+.input.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase}
+.input.mono::placeholder{font-family:var(--font);letter-spacing:0;text-transform:none}
+.sc.is-form{overflow-y:auto;scrollbar-width:none}
+.sc.is-form::-webkit-scrollbar{display:none}
+.dbs-asst__who span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dbs-asst__who span::before{flex:none}
+.counter{display:flex;justify-content:space-between;margin-top:6px;font-size:12px;color:var(--muted)}
+.counter .warn{color:var(--red-2)}
+.hint{display:flex;gap:8px;align-items:flex-start;margin-top:8px;padding:8px 10px;border-radius:14px;font-size:12.5px;line-height:1.45;color:#e9d0d0;background:rgba(229,37,43,.1);border:1px solid rgba(229,37,43,.3)}
+.hint svg{width:16px;height:16px;flex:none;stroke:var(--red-2);margin-top:1px}
+.err{min-height:16px;margin-top:6px;font-size:12px;color:var(--red-2)}
+.days{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 8px;margin:14px -2px 0;scrollbar-width:none}
+.days::-webkit-scrollbar{display:none}
+.day,.slot{flex:none;border-radius:14px;border:1px solid #33373a;background:rgba(0,0,0,.3);transition:all .2s}
+.day{width:58px;padding:8px 0;text-align:center}
+.day small{display:block;font-size:11px;color:var(--muted);text-transform:uppercase}
+.day b{display:block;font-size:18px;font-weight:700;margin-top:2px}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+.slot{height:38px;font-size:14px;font-weight:600}
+.day:hover,.slot:hover{border-color:#55595c}
+.day.is-on,.slot.is-on{background:var(--red);border-color:var(--red);box-shadow:0 0 18px var(--red-glow)}
+.day.is-on small{color:#ffe0e0}
+.consent{margin-top:12px;font-size:11.5px;line-height:1.45;color:var(--muted)}
+.summary{margin-top:16px;display:grid;gap:8px}
+.summary div{display:flex;justify-content:space-between;gap:12px;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.05);font-size:13px}
+.summary span{color:var(--muted)}
+.summary b{font-weight:600;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60%}
+.done-mark{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;margin-bottom:18px;background:radial-gradient(circle at 30% 30%,#ff5a5a,var(--red) 55%,#9b1015);box-shadow:0 0 40px var(--red-glow)}
+.done-mark svg{width:28px;height:28px;stroke:#fff}
+.mini-contacts{display:flex;gap:8px;margin-top:16px}
+.mini-contacts a{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;height:38px;border-radius:12px;font-size:12.5px;font-weight:600;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+.mini-contacts svg{width:15px;height:15px;fill:#fff}
+
+/* нижние кнопки */
+.dbs-asst__foot{display:flex;gap:10px;padding:18px 20px 12px}
+.act{flex:1;min-width:0;height:54px;border-radius:999px;display:flex;align-items:center;justify-content:center;gap:8px;padding:0 14px;font-size:14px;font-weight:700;transition:transform .15s,box-shadow .2s,background .2s,border-color .2s;white-space:nowrap}
+.act span{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.act svg{width:16px;height:16px;flex:none;stroke:currentColor}
+.act--l{background:#232527;border:1px solid #3a3d40;color:#fff}
+.act--l:hover{background:#2b2e30}
+.act--r{background:linear-gradient(180deg,#ff3a3f,var(--red) 60%,#c3161c);color:#fff;border:1px solid rgba(255,120,120,.4);box-shadow:0 0 0 1px rgba(0,0,0,.3),0 10px 26px rgba(229,37,43,.45),inset 0 1px 0 rgba(255,255,255,.25)}
+.act--r:hover{box-shadow:0 0 0 1px rgba(0,0,0,.3),0 12px 34px rgba(229,37,43,.65),inset 0 1px 0 rgba(255,255,255,.25)}
+.act:active{transform:scale(.97)}
+.act.is-hot{transform:scale(1.05)}
+.act[disabled]{opacity:.45;cursor:not-allowed;box-shadow:none}
+.act--narrow{flex:0 0 auto;width:54px;padding:0}
+.dbs-asst__hint{text-align:center;font-size:12px;color:var(--muted);padding:0 20px 18px;min-height:18px;transition:opacity .3s}
+.dbs-asst__hint svg{width:14px;height:14px;vertical-align:-2px;stroke:var(--muted);margin-right:4px}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 991px){
+  .site-header{background:linear-gradient(180deg,rgba(24,26,28,.95),rgba(24,26,28,0))}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .hero{min-height:auto;padding-top:110px}
+  .hero__media{opacity:.45;transform:translateX(-40%)}
+}
+@media (max-width: 600px){
+  .site-header{padding:16px}
+  .site-header .btn-book-mob{display:inline-flex;height:34px;font-size:11px;padding:0 14px}
+  .hero{padding:96px 0 50px}
+  .hero h1{font-size:28px}
+  .hero__sub{font-size:16px}
+  .promo{flex-direction:column;align-items:flex-start}
+  .services h2{font-size:28px}
+  .grid{grid-template-columns:1fr}
+  .svc{min-height:130px}
+  .contacts-float{right:12px;bottom:12px}
+  .contacts-float .cf-phone{display:none}
+  .dbs-launcher{left:12px;bottom:12px;padding-right:16px;font-size:13px}
+
+  /* bottom sheet */
+  .dbs-asst{place-items:end center;padding:0}
+  .dbs-asst__panel{max-width:none;border-radius:28px 28px 0 0;max-height:94vh;max-height:94dvh;transform:translateY(100%);padding-bottom:env(safe-area-inset-bottom)}
+  .dbs-asst__panel::before{content:"";position:absolute;top:8px;left:50%;width:38px;height:4px;margin-left:-19px;border-radius:4px;background:#3a3d40}
+  .dbs-asst__head{padding-top:22px}
+  .dbs-stage{height:min(460px,calc(94dvh - 230px));min-height:400px;margin:14px 16px 0}
+  .sc{padding:18px}
+  .sc__top{margin-bottom:14px}
+  .sc__icon{width:44px;height:44px;border-radius:14px}
+  .sc__chips{gap:6px;margin-bottom:14px}
+  .chip{height:26px;font-size:11px;padding:0 9px 0 4px}
+  .chip img{width:16px;height:16px}
+  .sc__title{font-size:24px;margin-bottom:8px}
+  .sc__text{font-size:14px;margin-bottom:12px}
+  .lg{padding:10px 10px 9px}
+  .lg b{font-size:13px}
+  .lg small{font-size:11px}
+  .dbs-asst__hint .or{display:none}
+  .dbs-asst__foot{padding:16px 16px 10px}
+  .act{height:50px;font-size:13px}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <a class="logo" href="https://www.dbservice.cz/" aria-label="DBS – domů">
+    <img src="https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/68056f6d9d9f83e31f094aec_Group%20859.svg" alt="DBS">
+  </a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+    <img src="https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/680723ec291bb71c726b6d81_SVG.svg" alt="">
+  </button>
+  <a class="btn btn-white btn-book-mob" href="https://booking.dbservice.cz/">On-line rezervace</a>
+</header>
+<nav class="menu" id="menu" aria-label="Hlavní menu">
+  <div class="langs"><a href="https://www.dbservice.cz/">ČR</a><a href="https://www.dbservice.cz/en">EN</a><a href="https://www.dbservice.cz/ru">RU</a><a href="https://www.dbservice.cz/ua">UA</a></div>
+  <a href="https://www.dbservice.cz/">Domů</a>
+  <a href="https://www.dbservice.cz/service-page">Služby</a>
+  <a href="https://www.dbservice.cz/price">Ceník</a>
+  <a href="https://www.dbservice.cz/blog">Naše práce</a>
+  <a href="https://www.dbservice.cz/special-offers">Akce</a>
+  <a href="https://www.dbservice.cz/b2b">Pro firmy</a>
+  <a href="https://www.dbservice.cz/how-to-find">Jak nás najdete</a>
+</nav>
+
+<main>
+<!-- ================= SECTION 1 — HERO ================= -->
+<section class="hero">
+  <div class="hero__media" aria-hidden="true">
+    <div class="hero__fallback"></div>
+    <video class="hero__video" autoplay muted playsinline webkit-playsinline preload="auto"
+           src="https://res.cloudinary.com/dnsw5tw5r/video/upload/v1770200611/home_page-anim.mp4"></video>
+  </div>
+  <div class="container">
+    <div class="hero__content">
+      <h1>Autoservis DBS Praha – spolehlivý servis pro všechny značky vozů</h1>
+      <p class="hero__sub">Technické centrum &amp; Detailing<br>Františka Kadlece 2441, 180 00 Praha 8</p>
+      <p class="hero__lead">DBS je místo, kde získáte kompletní péči o svůj automobil. Nabízíme odborný servis všech značek, precizní detailing a pokročilé služby našeho technického centra. Všechny ceny na webu jsou uvedeny včetně DPH.</p>
+      <div class="hero__cta">
+        <a class="btn btn-white" href="https://booking.dbservice.cz/">On-line rezervace</a>
+        <button class="btn btn-ghost" data-open-assistant><span class="dot"></span>Pomoc s výběrem</button>
+      </div>
+    </div>
+    <div class="promo">
+      <div>
+        <h2>Využijte naše aktuální akce a slevy</h2>
+        <p>Např. kompletní výměna brzdových destiček a kotoučů ZDARMA</p>
+      </div>
+      <a class="btn btn-white" href="https://www.dbservice.cz/special-offers">Akce</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECTION 2 — CO UMÍME ================= -->
+<section class="services" id="services">
+  <div class="container">
+    <h2>Co umíme?</h2>
+    <p class="lead">Poskytujeme komplexní servisní a detailingové služby pro všechny typy vozů</p>
+    <div class="tabs" role="tablist">
+      <button class="tab is-active" role="tab" aria-selected="true" data-tab="tech">Technické centrum</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="detailing">Detailing</button>
+    </div>
+
+    <div class="pane is-active" id="pane-tech" role="tabpanel">
+      <div class="group">
+        <h3 class="group-title">Pravidelná údržba</h3>
+        <div class="grid" data-services="maintenance"></div>
+      </div>
+      <div class="group">
+        <h3 class="group-title">Zjištění závad a opravy</h3>
+        <div class="grid" data-services="repairs"></div>
+      </div>
+      <div class="group">
+        <h3 class="group-title">Techcentrum</h3>
+        <div class="grid" data-services="techcentrum"></div>
+      </div>
+    </div>
+
+    <div class="pane" id="pane-detailing" role="tabpanel">
+      <div class="group">
+        <h3 class="group-title">DBS Detailing</h3>
+        <div class="grid" data-services="detailing"></div>
+      </div>
+      <div class="group">
+        <h3 class="group-title">Tuning &amp; audio</h3>
+        <div class="grid" data-services="tuning"></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= Плавающие контакты ================= -->
+<div class="contacts-float">
+  <div class="row">
+    <a class="cf-btn" href="tel:+420210012799" aria-label="Zavolat"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1l-2.2 2.23z"/></svg></a>
+    <a class="cf-btn" href="https://wa.me/420720773201" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1a15 15 0 0 1-1.5-.6 12 12 0 0 1-4.6-4.1c-.6-.8-1-1.8-1-2.8 0-1 .5-1.5.7-1.7.2-.2.4-.3.6-.3h.4c.1 0 .3 0 .5.4l.7 1.7c.1.1.1.3 0 .4l-.3.5-.4.4c-.1.1-.3.3-.1.5.2.3.7 1.1 1.4 1.8.9.8 1.7 1.1 2 1.2.2.1.4.1.5-.1l.7-.9c.2-.2.3-.2.5-.1l1.7.8c.2.1.4.2.4.3.1.1.1.6-.1 1.2z"/></svg></a>
+    <a class="cf-btn" href="https://t.me/DBS_PRG" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.4-.1-.5-.6-.2L6.5 13.2 1.8 11.7c-1-.3-1-1 .2-1.5L20.5 3.1c.9-.3 1.6.2 1.4 1.2z"/></svg></a>
+  </div>
+  <a class="cf-phone" href="tel:+420210012799">+420-210-012-799</a>
+</div>
+
+<!-- =========================================================
+     DBS SWIPE ASSISTANT — разметка
+     ========================================================= -->
+<button class="dbs-launcher is-hidden" id="dbsLauncher" aria-label="Otevřít průvodce">
+  <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="12" height="15" rx="3"/><path d="M9 3h9a3 3 0 0 1 3 3v12"/></svg></span>
+  <span class="pulse"></span>
+  <span id="dbsLauncherText">Rychlý průvodce</span>
+</button>
+
+<div class="dbs-asst" id="dbsAsst" aria-hidden="true">
+  <div class="dbs-asst__backdrop" data-close></div>
+  <div class="dbs-asst__panel" role="dialog" aria-modal="true" aria-labelledby="dbsWho" tabindex="-1">
+    <div class="dbs-asst__head">
+      <div class="dbs-asst__avatar"><img src="https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/68056f6d9d9f83e31f094aec_Group%20859.svg" alt=""></div>
+      <div class="dbs-asst__who"><b id="dbsWho"></b><span id="dbsStatus"></span></div>
+      <button class="icon-btn" id="dbsBack" hidden><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="icon-btn" id="dbsRestart" hidden><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+      <button class="icon-btn" data-close id="dbsClose"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="dbs-asst__progress"><i id="dbsProgress"></i></div>
+    <div class="dbs-stage" id="dbsStage">
+      <div class="dbs-ghost g2"></div>
+      <div class="dbs-ghost g1"></div>
+    </div>
+    <div class="dbs-asst__foot" id="dbsFoot"></div>
+    <div class="dbs-asst__hint" id="dbsHint"></div>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   Секция 2: данные карточек услуг (с dbservice.cz)
+   ========================================================= */
+(function(){
+  const CDN='https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/';
+  const S={
+    maintenance:[
+      ['Výměna oleje','od 599 Kč','vymena-oleje','6803aea8ac07af0303bb7508_oill-icon.webp'],
+      ['Výměna oleje v převodovce','od 1 499 Kč','vymena-oleje-v-prevodovce','68ea3502a8a1ab8634844edc_oleje.svg'],
+      ['Servis brzd','od 799 Kč','servis-brzd','68ea35009428749e7324c88f_brzd.svg'],
+      ['Výměna rozvodů','od 4 999 Kč','vymena-rozvodu','68ea34fd5f3a1b08347f4b24_Vy%CC%81me%CC%8Cna%20rozvodu%CC%8A.svg'],
+      ['Výměna spojky','od 4 999 Kč','vymena-spojky','68ea34fdcf9662176572a006_Vy%CC%81me%CC%8Cna%20spojky.svg'],
+      ['Podvozek a geometrie','od 2 299 Kč','podvozek','68ea34fd530c133f73bd422d_Podvozek.svg'],
+      ['Servis Klimatizace','od 999 Kč','servis-klimatizace','68ea350003f05ee922799481_Servis%20Klimatizace.svg']
+    ],
+    repairs:[
+      ['Diagnostika','od 999 Kč','diagnostika','68ea350032ea05a4ca333194_Diagnostika.svg'],
+      ['Mechanické opravy','od 899 Kč','mechanicke-opravy-vozu','68ea35000129319e670154ed_Mechanicke%CC%81%20opravy.svg'],
+      ['Generální opravy motorů','Na dotaz','generalni-opravy-motoru','68ea34fda1787015e513adf6_opravy%20motoru%CC%8A.svg']
+    ],
+    techcentrum:[
+      ['Karosářské práce','od 1 299 Kč','karosarske-prace','68ea3500bdf5f9286043df34_Karosa%CC%81r%CC%8Cske%CC%81%20pra%CC%81ce.svg'],
+      ['Prohlídky a kontroly','od 1 799 Kč','prohlidky-a-kontroly','68ea35002715f40a7bc25c2a_Prohli%CC%81dky%20a%20kontroly.svg'],
+      ['Pneuservis','od 349 Kč','pneuservis','68ea34fd079b8a74057e4d64_Pneuservis.svg']
+    ],
+    detailing:[
+      ['Exteriér','od 999 Kč','exterier','68ea3500a83c90fe8bbe0383_Exterie%CC%81r.svg'],
+      ['Kompletní detailing vozu','od 1 599 Kč','interier','68ea35009128c7a428d3ecb0_Interie%CC%81r.svg'],
+      ['Detailingové služby','od 1 899 Kč','samostatne-sluzby','68ea34fd40696984c0be0cd2_Samostatne%CC%81%20sluz%CC%8Cby.svg']
+    ],
+    tuning:[
+      ['Mechanický tuning','Na dotaz','mechanicky-tuning','68ea35022a52ad61fe4f2eaf_Mechanicky%CC%81%20tuning.svg'],
+      ['Vizuální tuning','Na dotaz','vizualni-tuning','68ea34fd270c128f8f3abddc_Vizua%CC%81lni%CC%81%20tuning.svg'],
+      ['Audiotechnika','Na dotaz','audiotechnika','68ea34fd0a91789d3988aefc_Audiotechnika.svg']
+    ]
+  };
+  const arrow=CDN+'6803aea8ac07af0303bb7509_next%20(1)%204.webp';
+  document.querySelectorAll('[data-services]').forEach(g=>{
+    g.innerHTML=S[g.dataset.services].map(([t,p,slug,ic])=>`
+      <a class="svc" href="https://www.dbservice.cz/individual-service-page/${slug}">
+        <div class="svc__head"><img src="${CDN+ic}" alt="" loading="lazy"><h3>${t}</h3></div>
+        <div class="svc__price"><p>${p}</p><img src="${arrow}" alt=""></div>
+      </a>`).join('');
+  });
+
+  // хиро-видео: проигрывается один раз, как на сайте; если не успело загрузиться — показываем заглушку
+  const hv=document.querySelector('.hero__video'), hf=document.querySelector('.hero__fallback');
+  let hvReady=false;
+  const showHv=()=>{if(hvReady)return;hvReady=true;hv.classList.add('is-ready');hv.play().catch(()=>hf.classList.add('is-visible'))};
+  hv.addEventListener('loadeddata',showHv); hv.addEventListener('canplay',showHv);
+  hv.addEventListener('error',()=>hf.classList.add('is-visible'));
+  setTimeout(()=>{if(!hvReady)hf.classList.add('is-visible')},2000);
+
+  // табы
+  window.dbsSetTab=function(key){
+    document.querySelectorAll('.tab').forEach(t=>{const on=t.dataset.tab===key;t.classList.toggle('is-active',on);t.setAttribute('aria-selected',on)});
+    document.querySelectorAll('.pane').forEach(p=>p.classList.toggle('is-active',p.id==='pane-'+key));
+  };
+  document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>dbsSetTab(t.dataset.tab)));
+
+  // меню
+  const nt=document.getElementById('navToggle'),menu=document.getElementById('menu');
+  nt.addEventListener('click',()=>{const o=menu.classList.toggle('is-open');nt.setAttribute('aria-expanded',o)});
+  document.addEventListener('click',e=>{if(menu.classList.contains('is-open')&&!menu.contains(e.target)&&!nt.contains(e.target))menu.classList.remove('is-open')});
+})();
+</script>
+
+<script>
+/* =========================================================
+   DBS SWIPE ASSISTANT
+   ---------------------------------------------------------
+   Дерево сценариев — по ТЗ «DBS_Interactive_Booking_Flow»:
+   1 Приветствие  ← Autoservis | Detailing →
+   2 Готовность   ← Узнать цену (→3) | Записаться (→ пожелания → календарь → контакт)
+   3 Возражение   ← Прайс-лист (→4) | VIN и запрос (→ пожелания+VIN → WhatsApp, без календаря)
+   4 Мягкий выход → прайс-лист / PDF
+   ========================================================= */
+(function(){
+  const CONFIG = {
+    autoOpenDelay: 3500,          // мс до авто-открытия
+    snoozeDays: 3,                // после закрытия не открываться автоматически N дней
+    bookingUrl: 'https://booking.dbservice.cz/',
+    priceUrl:   'https://www.dbservice.cz/price',
+    pricePdfUrl: null,            // напр. 'https://…/cenik.pdf' — появится кнопка «Stáhnout PDF»
+    whatsapp:   '420720773201',
+    phone:      '+420210012799',
+    telegram:   'DBS_PRG',
+    submitEndpoint: null,         // URL для POST JSON заявки (CRM / Make / Zapier). null = только событие
+    syncPageTabs: true            // переключать табы «Co umíme?» по выбору в карточке 1
+  };
+
+  /* ---------- тексты (cs по умолчанию, ru — ?lang=ru или <html lang="ru">) ---------- */
+  const I18N = {
+    cs:{
+      who:'Asistent DBS', status:'Online · odpověď do 1 min', launcher:'Rychlý průvodce',
+      hintSwipe:'Potáhněte kartu doleva nebo doprava', hintTap:'nebo klepněte na tlačítko',
+      back:'Zpět', next:'Pokračovat', send:'Odeslat', close:'Zavřít',
+      welcome:{eyebrow:'Začínáme', title:'Dobrý den!<br><em>Vítejte v DBS.</em>', text:'Co je teď pro váš vůz aktuálnější?',
+        l:'Autoservis', ls:'Opravy, servis, diagnostika', r:'Detailing', rs:'Péče, fólie, estetika',
+        chipsL:['Olej','Brzdy','Diagnostika'], chipsR:['Exteriér','Interiér','Tuning']},
+      readiness:{eyebrow:'Váš plán', title:'Skvělá <em>volba.</em>', text:'Chcete si rovnou rezervovat vhodný termín, nebo se zatím jen zorientovat v cenách?',
+        l:'Chci znát cenu', ls:'Nezávazně', r:'Chci se objednat', rs:'Vybrat termín'},
+      objection:{eyebrow:'Přesná kalkulace', title:'Rozumíme!', text:'Abychom vám mohli dát přesnou kalkulaci, napište VIN vašeho vozu a co je potřeba udělat. Nechte nám kontakt — <b>ještě dnes</b> vám odpovíme na WhatsApp.',
+        l:'Stačí mi ceník', ls:'Orientační ceny', r:'Poslat VIN a dotaz', rs:'Odpověď dnes'},
+      exit:{eyebrow:'Ceník', title:'Žádný <em>problém.</em>', text:'Základní ceny najdete na odkazu níže. Kdyby vás cokoli napadlo — jsme vždy na příjmu!',
+        open:'Otevřít ceník', pdf:'Stáhnout PDF'},
+      wish:{eyebrow:'Krok 1', title:'Popište vaše <em>přání</em>', text:'Popište problém nebo nám řekněte, co je potřeba udělat.',
+        ph:'Např. klepání vpředu vpravo při přejezdu nerovností, výměna oleje…',
+        phVin:'Např. výměna rozvodů a vodní pumpy, cena s originálními díly…',
+        vin:'VIN kód', vinPh:'17 znaků',
+        vinHint:'VIN najdete v malém technickém průkazu (kolonka E) nebo pod čelním sklem.',
+        errText:'Napište nám prosím pár slov.', errVin:'VIN má 17 znaků (bez I, O, Q).'},
+      date:{eyebrow:'Krok 2', title:'Vyberte <em>termín</em>', text:'Termín vám potvrdíme telefonicky nebo SMS.', day:'Den', time:'Čas', err:'Vyberte den a čas.'},
+      contact:{eyebrow:'Poslední krok', titleBook:'Kam vám pošleme <em>potvrzení?</em>', titleVin:'Kam vám napíšeme na <em>WhatsApp?</em>',
+        name:'Jméno', namePh:'Jan Novák', phone:'Telefon', phoneWa:'Číslo s WhatsApp', phonePh:'+420 123 456 789',
+        err:'Zadejte platné telefonní číslo.', consent:'Odesláním souhlasíte se zpracováním údajů za účelem vyřízení vašeho požadavku.',
+        sService:'Služba', sDate:'Termín', sVin:'VIN'},
+      doneBook:{title:'Hotovo, <em>děkujeme!</em>', text:'Termín <b>{when}</b> máme předběžně zapsaný. Brzy se vám ozveme a potvrdíme ho.', cta:'On-line rezervace'},
+      doneVin:{title:'Díky, <em>máme to!</em>', text:'Kalkulaci vám pošleme <b>ještě dnes</b> na WhatsApp. Chcete napsat hned?', cta:'Napsat hned'},
+      svc:{autoservis:'Autoservis', detailing:'Detailing'},
+      days:['Ne','Po','Út','St','Čt','Pá','So'],
+      call:'Zavolat'
+    },
+    ru:{
+      who:'Ассистент DBS', status:'Онлайн · ответ за 1 мин', launcher:'Быстрый подбор',
+      hintSwipe:'Смахните карточку влево или вправо', hintTap:'или нажмите кнопку',
+      back:'Назад', next:'Продолжить', send:'Отправить', close:'Закрыть',
+      welcome:{eyebrow:'Начнём', title:'Добрый день!<br><em>Добро пожаловать в DBS.</em>', text:'Что сейчас актуальнее для вашего автомобиля?',
+        l:'Автосервис', ls:'Ремонт, ТО, диагностика', r:'Детейлинг', rs:'Уход, плёнки, эстетика',
+        chipsL:['Масло','Тормоза','Диагностика'], chipsR:['Экстерьер','Интерьер','Тюнинг']},
+      readiness:{eyebrow:'Ваш план', title:'Отличный <em>выбор.</em>', text:'Вы хотите сразу забронировать удобное время или пока просто сориентироваться по стоимости работ?',
+        l:'Хочу узнать цену', ls:'Без обязательств', r:'Готов записаться', rs:'Выбрать время'},
+      objection:{eyebrow:'Точный расчёт', title:'Понимаем!', text:'Чтобы мы могли дать точный расчёт, напишите VIN-код вашего авто и что нужно сделать. Оставьте контакты — и мы ответим вам в WhatsApp <b>сегодня же</b>.',
+        l:'Прайс-лист', ls:'Базовые цены', r:'VIN и запрос', rs:'Ответ сегодня'},
+      exit:{eyebrow:'Прайс-лист', title:'Без <em>проблем.</em>', text:'Базовые цены — по ссылке ниже. Если появятся вопросы — мы всегда на связи!',
+        open:'Прайс-лист', pdf:'Скачать PDF'},
+      wish:{eyebrow:'Шаг 1', title:'Опишите ваши <em>пожелания</em>', text:'Опишите проблему или расскажите, что нужно сделать.',
+        ph:'Напр.: стук спереди справа на неровностях, замена масла…',
+        phVin:'Напр.: замена ГРМ и помпы, цена с оригинальными запчастями…',
+        vin:'VIN-код', vinPh:'17 символов',
+        vinHint:'VIN указан в техпаспорте (графа E) или под лобовым стеклом.',
+        errText:'Напишите, пожалуйста, пару слов.', errVin:'VIN состоит из 17 символов (без I, O, Q).'},
+      date:{eyebrow:'Шаг 2', title:'Выберите <em>время</em>', text:'Мы подтвердим запись звонком или SMS.', day:'День', time:'Время', err:'Выберите день и время.'},
+      contact:{eyebrow:'Последний шаг', titleBook:'Куда прислать <em>подтверждение?</em>', titleVin:'Куда написать вам в <em>WhatsApp?</em>',
+        name:'Имя', namePh:'Иван', phone:'Телефон', phoneWa:'Номер с WhatsApp', phonePh:'+420 123 456 789',
+        err:'Введите корректный номер телефона.', consent:'Отправляя форму, вы соглашаетесь на обработку данных для обработки вашего запроса.',
+        sService:'Услуга', sDate:'Время', sVin:'VIN'},
+      doneBook:{title:'Готово, <em>спасибо!</em>', text:'Мы предварительно записали вас на <b>{when}</b>. Скоро свяжемся и подтвердим.', cta:'Онлайн-запись'},
+      doneVin:{title:'Спасибо, <em>приняли!</em>', text:'Расчёт пришлём <b>сегодня же</b> в WhatsApp. Хотите написать прямо сейчас?', cta:'Написать сейчас'},
+      svc:{autoservis:'Автосервис', detailing:'Детейлинг'},
+      days:['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+      call:'Позвонить'
+    }
+  };
+  const qLang=new URLSearchParams(location.search).get('lang');
+  const lang=(qLang||document.documentElement.lang||'cs').slice(0,2);
+  const T=I18N[lang]||I18N.cs;
+
+  /* ---------- иконки ---------- */
+  const I={
+    wrench:'<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/>',
+    spark:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>',
+    hand:'<path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V12"/><path d="M11 11.5v-2a1.5 1.5 0 0 1 3 0V12"/><path d="M14 10.5a1.5 1.5 0 0 1 3 0V12"/><path d="M17 11.5a1.5 1.5 0 0 1 3 0V16a6 6 0 0 1-6 6h-2a6 6 0 0 1-4.6-2.2L4.2 16a1.5 1.5 0 0 1 2.3-1.9L8 16"/>',
+    tag:'<path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
+    doc:'<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/>',
+    pen:'<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>',
+    cal:'<rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+    phone:'<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/>',
+    check:'<path d="M20 6 9 17l-5-5"/>',
+    info:'<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>',
+    left:'<path d="M19 12H5M12 19l-7-7 7-7"/>',
+    right:'<path d="M5 12h14M12 5l7 7-7 7"/>',
+    ext:'<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/>',
+    dl:'<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>'
+  };
+  const svg=(n,cls='')=>`<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${I[n]}</svg>`;
+  const WA_SVG='<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1a15 15 0 0 1-1.5-.6 12 12 0 0 1-4.6-4.1c-.6-.8-1-1.8-1-2.8 0-1 .5-1.5.7-1.7.2-.2.4-.3.6-.3h.4c.1 0 .3 0 .5.4l.7 1.7c.1.1.1.3 0 .4l-.3.5-.4.4c-.1.1-.3.3-.1.5.2.3.7 1.1 1.4 1.8.9.8 1.7 1.1 2 1.2.2.1.4.1.5-.1l.7-.9c.2-.2.3-.2.5-.1l1.7.8c.2.1.4.2.4.3.1.1.1.6-.1 1.2z"/></svg>';
+  const TG_SVG='<svg viewBox="0 0 24 24"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.4-.1-.5-.6-.2L6.5 13.2 1.8 11.7c-1-.3-1-1 .2-1.5L20.5 3.1c.9-.3 1.6.2 1.4 1.2z"/></svg>';
+  const CDN='https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/';
+  const CHIP_ICONS_L=['6803aea8ac07af0303bb7508_oill-icon.webp','68ea35009428749e7324c88f_brzd.svg','68ea350032ea05a4ca333194_Diagnostika.svg'];
+  const CHIP_ICONS_R=['68ea3500a83c90fe8bbe0383_Exterie%CC%81r.svg','68ea35009128c7a428d3ecb0_Interie%CC%81r.svg','68ea34fd270c128f8f3abddc_Vizua%CC%81lni%CC%81%20tuning.svg'];
+
+  /* ---------- состояние ---------- */
+  const state={service:null,intent:null,branch:null,wish:'',vin:'',date:null,time:null,name:'',phone:''};
+  let current='welcome', history=[], busy=false, hintShown=false;
+
+  /* свайп-карточки: какие действия у лево/право */
+  const SWIPE={
+    welcome:{
+      left:()=>{state.service='autoservis'; syncTab(); return 'readiness'},
+      right:()=>{state.service='detailing'; syncTab(); return 'readiness'}
+    },
+    readiness:{
+      left:()=>{state.intent='price'; return 'objection'},
+      right:()=>{state.intent='book'; state.branch='book'; return 'wish'}
+    },
+    objection:{
+      left:()=>{state.branch='exit'; return 'exit'},
+      right:()=>{state.branch='vin'; return 'wish'}
+    }
+  };
+  const PROGRESS={welcome:.12,readiness:.3,objection:.45,wish:.6,date:.78,contact:.9,exit:1,done:1};
+
+  /* ---------- DOM ---------- */
+  const $=id=>document.getElementById(id);
+  const root=$('dbsAsst'), panel=root.querySelector('.dbs-asst__panel'), stage=$('dbsStage'),
+        foot=$('dbsFoot'), hint=$('dbsHint'), bar=$('dbsProgress'),
+        launcher=$('dbsLauncher'), btnBack=$('dbsBack'), btnRestart=$('dbsRestart');
+  $('dbsWho').textContent=T.who; $('dbsStatus').textContent=T.status; $('dbsLauncherText').textContent=T.launcher;
+  btnBack.setAttribute('aria-label',T.back); $('dbsClose').setAttribute('aria-label',T.close);
+
+  /* ---------- storage (безопасно) ---------- */
+  const store={
+    get(k){try{return localStorage.getItem(k)}catch(e){return null}},
+    set(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+  };
+
+  function syncTab(){ if(CONFIG.syncPageTabs&&window.dbsSetTab) dbsSetTab(state.service==='detailing'?'detailing':'tech'); }
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+  /* =========================================================
+     RENDER
+     ========================================================= */
+  function cardHTML(id){
+    const c=T[id];
+    if(SWIPE[id]){
+      const icon={welcome:'wrench',readiness:'cal',objection:'doc'}[id];
+      const chips = id==='welcome' ? `<div class="sc__chips">
+          ${c.chipsL.map((t,i)=>`<span class="chip"><img src="${CDN+CHIP_ICONS_L[i]}" alt="">${t}</span>`).join('')}
+          ${c.chipsR.map((t,i)=>`<span class="chip red"><img src="${CDN+CHIP_ICONS_R[i]}" alt="">${t}</span>`).join('')}
+        </div>` : '';
+      return `
+        <div class="sc__bg"></div>
+        <div class="sc__stamp sc__stamp--l">${c.l}</div>
+        <div class="sc__stamp sc__stamp--r">${c.r}</div>
+        <div class="sc__top"><span class="sc__icon">${svg(icon)}</span><span class="sc__eyebrow">${c.eyebrow}</span></div>
+        ${chips}
+        <h3 class="sc__title">${c.title}</h3>
+        <p class="sc__text">${c.text}</p>
+        <div class="sc__spacer"></div>
+        <div class="sc__legend">
+          <div class="lg lg--l"><b>${svg('left')}${c.l}</b><small>${c.ls}</small></div>
+          <div class="lg lg--r"><b>${c.r}${svg('right')}</b><small>${c.rs}</small></div>
+        </div>`;
+    }
+    if(id==='exit') return `
+        <div class="sc__bg"></div>
+        <div class="sc__top"><span class="sc__icon">${svg('tag')}</span><span class="sc__eyebrow">${c.eyebrow}</span></div>
+        <h3 class="sc__title">${c.title}</h3>
+        <p class="sc__text">${c.text}</p>
+        <div class="sc__spacer"></div>
+        ${miniContacts()}`;
+    if(id==='wish'){
+      const vin=state.branch==='vin';
+      return `
+        <div class="sc__bg"></div>
+        <div class="sc__top"><span class="sc__icon">${svg('pen')}</span><span class="sc__eyebrow">${T.svc[state.service]||''} · ${c.eyebrow}</span></div>
+        <h3 class="sc__title">${c.title}</h3>
+        <p class="sc__text">${c.text}</p>
+        ${vin?`<div class="field"><label for="fVin">${c.vin}</label><input class="input mono" id="fVin" maxlength="17" autocomplete="off" placeholder="${c.vinPh}" value="${esc(state.vin)}"><div class="hint">${svg('info')}<span>${c.vinHint}</span></div></div>`:''}
+        <div class="field"><textarea class="textarea" id="fWish" maxlength="500" placeholder="${vin?c.phVin:c.ph}" style="${vin?'height:96px':''}">${esc(state.wish)}</textarea>
+          <div class="counter"><span class="err" id="fWishErr"></span><span id="fWishCnt">${state.wish.length}/500</span></div></div>
+`;
+    }
+    if(id==='date'){
+      const days=nextDays(12);
+      if(!state.date) state.date=days[0].iso;
+      const slots=['08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','17:30','18:00'];
+      return `
+        <div class="sc__bg"></div>
+        <div class="sc__top"><span class="sc__icon">${svg('cal')}</span><span class="sc__eyebrow">${T.svc[state.service]||''} · ${c.eyebrow}</span></div>
+        <h3 class="sc__title">${c.title}</h3>
+        <p class="sc__text">${c.text}</p>
+        <div class="days" role="listbox" aria-label="${c.day}">
+          ${days.map(d=>`<button class="day ${d.iso===state.date?'is-on':''}" data-day="${d.iso}" role="option"><small>${d.dow}</small><b>${d.d}</b></button>`).join('')}
+        </div>
+        <div class="slots" role="listbox" aria-label="${c.time}">
+          ${slots.map(s=>`<button class="slot ${s===state.time?'is-on':''}" data-time="${s}" role="option">${s}</button>`).join('')}
+        </div>
+        <div class="err" id="fDateErr"></div>`;
+    }
+    if(id==='contact'){
+      const vin=state.branch==='vin';
+      return `
+        <div class="sc__bg"></div>
+        <div class="sc__top"><span class="sc__icon">${svg('phone')}</span><span class="sc__eyebrow">${c.eyebrow}</span></div>
+        <h3 class="sc__title">${vin?c.titleVin:c.titleBook}</h3>
+        <div class="field"><label for="fName">${c.name}</label><input class="input" id="fName" autocomplete="name" placeholder="${c.namePh}" value="${esc(state.name)}"></div>
+        <div class="field"><label for="fPhone">${vin?c.phoneWa:c.phone}</label><input class="input" id="fPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="${c.phonePh}" value="${esc(state.phone||'+420 ')}"><div class="err" id="fPhoneErr"></div></div>
+        <div class="summary">
+          <div><span>${c.sService}</span><b>${T.svc[state.service]||'—'}</b></div>
+          ${vin?`<div><span>${c.sVin}</span><b>${esc(state.vin||'—')}</b></div>`:`<div><span>${c.sDate}</span><b>${whenText()}</b></div>`}
+        </div>
+        <div class="sc__spacer"></div>
+        <p class="consent">${c.consent}</p>`;
+    }
+    if(id==='done'){
+      const d=state.branch==='vin'?T.doneVin:T.doneBook;
+      return `
+        <div class="sc__bg"></div>
+        <div class="sc__spacer"></div>
+        <div class="done-mark">${svg('check')}</div>
+        <h3 class="sc__title">${d.title}</h3>
+        <p class="sc__text">${d.text.replace('{when}',whenText())}</p>
+        <div class="sc__spacer"></div>
+        ${miniContacts()}`;
+    }
+  }
+
+  function miniContacts(){
+    return `<div class="mini-contacts">
+      <a href="tel:${CONFIG.phone}">${svg('phone').replace('stroke-width="2"','stroke-width="2" style="fill:none;stroke:#fff"')}${T.call}</a>
+      <a href="https://wa.me/${CONFIG.whatsapp}" target="_blank" rel="noopener">${WA_SVG}WhatsApp</a>
+      <a href="https://t.me/${CONFIG.telegram}" target="_blank" rel="noopener">${TG_SVG}Telegram</a>
+    </div>`;
+  }
+
+  function footHTML(id){
+    if(SWIPE[id]){
+      const c=T[id];
+      return `<button class="act act--l" data-swipe="left">${svg('left')}<span>${c.l}</span></button>
+              <button class="act act--r" data-swipe="right"><span>${c.r}</span>${svg('right')}</button>`;
+    }
+    if(id==='exit'){
+      const c=T.exit;
+      return `<button class="act act--l" data-close>${T.close}</button>
+        ${CONFIG.pricePdfUrl?`<a class="act act--l" href="${CONFIG.pricePdfUrl}" download>${svg('dl')}<span>${c.pdf}</span></a>`:''}
+        <a class="act act--r" href="${CONFIG.priceUrl}"><span>${c.open}</span>${svg('ext')}</a>`;
+    }
+    if(id==='done'){
+      const vin=state.branch==='vin';
+      const href=vin?waLink():bookingLink();
+      return `<button class="act act--l" data-close>${T.close}</button>
+        <a class="act act--r" href="${href}" ${vin?'target="_blank" rel="noopener"':''}><span>${vin?T.doneVin.cta:T.doneBook.cta}</span>${svg('ext')}</a>`;
+    }
+    const last=id==='contact';
+    return `<button class="act act--l act--narrow" data-back aria-label="${T.back}">${svg('left')}</button>
+            <button class="act act--r" data-next><span>${last?T.send:T.next}</span>${svg(last?'check':'right')}</button>`;
+  }
+
+  function render(id,{enter=true}={}){
+    current=id;
+    stage.querySelectorAll('.sc').forEach(n=>n.remove());
+    const el=document.createElement('article');
+    el.className='sc'+(SWIPE[id]?' is-swipe':' is-form')+(enter?' enter':'');
+    el.innerHTML=cardHTML(id);
+    stage.appendChild(el);
+    stage.classList.toggle('is-final',id==='done'||id==='exit');
+    foot.innerHTML=footHTML(id);
+    bar.style.width=(PROGRESS[id]*100)+'%';
+    btnBack.hidden=!history.length||id==='done';
+    btnRestart.hidden=id==='welcome';
+    btnRestart.setAttribute('aria-label','Restart');
+    hint.innerHTML=SWIPE[id]?`${svg('hand')}${T.hintSwipe} <span class="or" style="opacity:.6">${T.hintTap}</span>`:'';
+    if(SWIPE[id]) bindDrag(el);
+    bindForm(id,el);
+    if(id==='welcome'&&!hintShown){ hintShown=true; setTimeout(()=>{ if(current==='welcome'&&!el.dataset.touched){ el.classList.remove('enter'); void el.offsetWidth; el.classList.add('nudge'); } },700); }
+  }
+
+  /* =========================================================
+     SWIPE / DRAG
+     ========================================================= */
+  function bindDrag(el){
+    let sx=0,sy=0,dx=0,dy=0,t0=0,down=false,id=null;
+    const stampL=el.querySelector('.sc__stamp--l'), stampR=el.querySelector('.sc__stamp--r');
+    const actL=foot.querySelector('[data-swipe="left"]'), actR=foot.querySelector('[data-swipe="right"]');
+    const setLean=()=>{
+      const p=Math.min(Math.abs(dx)/110,1);
+      stampL.style.opacity=dx<0?p:0; stampR.style.opacity=dx>0?p:0;
+      el.dataset.lean=dx<-30?'left':dx>30?'right':'';
+      actL&&actL.classList.toggle('is-hot',dx<-60); actR&&actR.classList.toggle('is-hot',dx>60);
+      el.style.boxShadow=dx>30?`0 24px 50px rgba(0,0,0,.5),0 0 ${40*p}px rgba(229,37,43,${.6*p})`:dx<-30?`0 24px 50px rgba(0,0,0,.5),0 0 ${40*p}px rgba(255,255,255,${.25*p})`:'';
+    };
+    el.addEventListener('pointerdown',e=>{
+      if(busy||e.button>0) return;
+      down=true; id=e.pointerId; sx=e.clientX; sy=e.clientY; dx=dy=0; t0=performance.now();
+      el.dataset.touched='1'; el.classList.remove('nudge','enter');
+      el.style.transition='none'; el.classList.add('is-drag');
+      el.setPointerCapture(id);
+    });
+    el.addEventListener('pointermove',e=>{
+      if(!down||e.pointerId!==id) return;
+      dx=e.clientX-sx; dy=e.clientY-sy;
+      el.style.transform=`translate(${dx}px,${dy*.25}px) rotate(${dx*.06}deg)`;
+      setLean();
+    });
+    const up=e=>{
+      if(!down||e.pointerId!==id) return;
+      down=false; el.classList.remove('is-drag');
+      const v=Math.abs(dx)/Math.max(1,performance.now()-t0);
+      if(Math.abs(dx)>100||(v>.6&&Math.abs(dx)>40)){ commit(dx<0?'left':'right',el,dy*.25); }
+      else{
+        el.style.transition='transform .45s cubic-bezier(.2,1.4,.4,1),box-shadow .3s';
+        el.style.transform=''; dx=0; setLean();
+      }
+    };
+    el.addEventListener('pointerup',up); el.addEventListener('pointercancel',up);
+  }
+
+  function flyOut(el,dir,y=0){
+    return new Promise(res=>{
+      const w=Math.max(window.innerWidth,600);
+      el.style.transition='transform .42s cubic-bezier(.3,.6,.4,1),opacity .42s';
+      el.style.transform=`translate(${dir==='left'?-w:w}px,${y-30}px) rotate(${dir==='left'?-28:28}deg)`;
+      el.style.opacity='0';
+      stage.querySelectorAll('.dbs-ghost').forEach(g=>{g.style.transform='translateY(0) scale(1)';});
+      setTimeout(()=>{stage.querySelectorAll('.dbs-ghost').forEach(g=>g.style.transform='');res();},300);
+    });
+  }
+
+  async function commit(dir,el,y){
+    if(busy||!SWIPE[current]) return;
+    busy=true;
+    el=el||stage.querySelector('.sc');
+    const stamp=el.querySelector(dir==='left'?'.sc__stamp--l':'.sc__stamp--r'); if(stamp) stamp.style.opacity=1;
+    const next=SWIPE[current][dir]();
+    track('swipe',{card:current,dir});
+    history.push(current);
+    await flyOut(el,dir,y||0);
+    render(next); busy=false;
+  }
+
+  /* переход между шагами-формами */
+  async function go(next,{back=false}={}){
+    if(busy) return; busy=true;
+    const el=stage.querySelector('.sc');
+    if(!back) history.push(current);
+    if(el) await flyOut(el,back?'right':'left',0);
+    render(next); busy=false;
+    const f=stage.querySelector('input,textarea'); if(f&&window.matchMedia('(min-width:601px)').matches) f.focus({preventScroll:true});
+  }
+
+  function goBack(){
+    if(!history.length||busy) return;
+    const prev=history.pop();
+    go(prev,{back:true});
+  }
+
+  /* =========================================================
+     FORMS
+     ========================================================= */
+  function bindForm(id,el){
+    if(id==='wish'){
+      const ta=el.querySelector('#fWish'), cnt=el.querySelector('#fWishCnt'), vin=el.querySelector('#fVin');
+      ta.addEventListener('input',()=>{state.wish=ta.value; cnt.textContent=ta.value.length+'/500'; cnt.classList.toggle('warn',ta.value.length>480)});
+      vin&&vin.addEventListener('input',()=>{vin.value=vin.value.toUpperCase().replace(/[^A-HJ-NPR-Z0-9]/g,''); state.vin=vin.value});
+    }
+    if(id==='date'){
+      el.addEventListener('click',e=>{
+        const d=e.target.closest('[data-day]'), s=e.target.closest('[data-time]');
+        if(d){state.date=d.dataset.day; el.querySelectorAll('.day').forEach(b=>b.classList.toggle('is-on',b===d))}
+        if(s){state.time=s.dataset.time; el.querySelectorAll('.slot').forEach(b=>b.classList.toggle('is-on',b===s))}
+      });
+    }
+    if(id==='contact'){
+      const n=el.querySelector('#fName'), p=el.querySelector('#fPhone');
+      n.addEventListener('input',()=>state.name=n.value);
+      p.addEventListener('input',()=>state.phone=p.value);
+    }
+    // формы: не даём drag-жестам мешать вводу
+    el.querySelectorAll('input,textarea,button').forEach(x=>x.addEventListener('pointerdown',e=>e.stopPropagation()));
+  }
+
+  function validateAndNext(){
+    if(current==='wish'){
+      const err=stage.querySelector('#fWishErr');
+      if(state.branch==='vin'&&state.vin&&!/^[A-HJ-NPR-Z0-9]{17}$/.test(state.vin)){ err.textContent=T.wish.errVin; stage.querySelector('#fVin').focus(); return; }
+      if(state.wish.trim().length<3 && !(state.branch==='vin'&&state.vin.length===17)){ err.textContent=T.wish.errText; stage.querySelector('#fWish').focus(); return; }
+      track('wish',{len:state.wish.length});
+      return go(state.branch==='book'?'date':'contact');     // «Узнать цену» — без календаря
+    }
+    if(current==='date'){
+      if(!state.date||!state.time){ stage.querySelector('#fDateErr').textContent=T.date.err; return; }
+      return go('contact');
+    }
+    if(current==='contact'){
+      const digits=(state.phone||'').replace(/\D/g,'');
+      if(digits.length<9){ const e=stage.querySelector('#fPhoneErr'); e.textContent=T.contact.err; stage.querySelector('#fPhone').focus(); return; }
+      submit();
+      return go('done');
+    }
+  }
+
+  /* =========================================================
+     ОТПРАВКА / ИНТЕГРАЦИЯ
+     ========================================================= */
+  function payload(){
+    return {
+      source:'dbs-swipe-assistant', lang,
+      service:state.service,                       // 'autoservis' | 'detailing'  → шаг 1 системы резервации
+      flow:state.branch,                           // 'book' | 'vin' | 'exit'
+      note:state.wish.trim(),                      // «Опишите ваши пожелания 0/500»
+      vin:state.vin||null,
+      date:state.branch==='book'?state.date:null,  // YYYY-MM-DD
+      time:state.branch==='book'?state.time:null,
+      name:state.name.trim()||null,
+      phone:state.phone.trim(),
+      channel:state.branch==='vin'?'whatsapp':'phone',
+      page:location.href, ts:new Date().toISOString()
+    };
+  }
+  function submit(){
+    const data=payload();
+    document.dispatchEvent(new CustomEvent('dbs-assistant:submit',{detail:data}));
+    if(window.dataLayer) window.dataLayer.push({event:'dbs_assistant_submit',flow:data.flow,service:data.service});
+    if(CONFIG.submitEndpoint){
+      fetch(CONFIG.submitEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),keepalive:true}).catch(()=>{});
+    }
+    console.info('[DBS assistant] submit',data);
+  }
+  function bookingLink(){
+    const p=new URLSearchParams({source:'assistant',service:state.service||'',date:state.date||'',time:state.time||'',note:state.wish.slice(0,500)});
+    return CONFIG.bookingUrl+'?'+p.toString();
+  }
+  function waLink(){
+    const txt=[`DBS – ${T.svc[state.service]||''}`, state.vin?`VIN: ${state.vin}`:'', state.wish].filter(Boolean).join('\n');
+    return `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(txt)}`;
+  }
+  function track(ev,data){
+    if(window.dataLayer) window.dataLayer.push(Object.assign({event:'dbs_assistant_'+ev},data));
+  }
+
+  /* ---------- даты ---------- */
+  function nextDays(n){
+    const out=[]; const d=new Date(); d.setHours(12,0,0,0);
+    while(out.length<n){
+      d.setDate(d.getDate()+1);
+      if(d.getDay()===0) continue;               // воскресенье — выходной
+      const iso=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+      out.push({iso,d:d.getDate(),dow:T.days[d.getDay()]});
+    }
+    return out;
+  }
+  function whenText(){
+    if(!state.date) return '—';
+    const [y,m,d]=state.date.split('-').map(Number);
+    const dt=new Date(y,m-1,d);
+    return `${T.days[dt.getDay()]} ${d}. ${m}.${state.time?' · '+state.time:''}`;
+  }
+
+  /* =========================================================
+     OPEN / CLOSE
+     ========================================================= */
+  let lastFocus=null;
+  function open(){
+    if(root.classList.contains('is-open')) return;
+    lastFocus=document.activeElement;
+    root.classList.add('is-open'); root.setAttribute('aria-hidden','false');
+    launcher.classList.add('is-hidden');
+    if(!stage.querySelector('.sc')) render('welcome');
+    if(window.matchMedia('(max-width:600px)').matches) document.body.style.overflow='hidden';
+    setTimeout(()=>panel.focus({preventScroll:true}),50);
+    track('open',{});
+  }
+  function close(){
+    root.classList.remove('is-open'); root.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    launcher.classList.remove('is-hidden');
+    store.set('dbsAsstSnooze',String(Date.now()));
+    if(current==='done'||current==='exit') restart(true);   // следующий раз — с начала
+    lastFocus&&lastFocus.focus&&lastFocus.focus({preventScroll:true});
+    track('close',{card:current});
+  }
+  function restart(silent){
+    Object.assign(state,{service:null,intent:null,branch:null,wish:'',vin:'',date:null,time:null,name:'',phone:''});
+    history=[];
+    if(silent){ stage.querySelectorAll('.sc').forEach(n=>n.remove()); current='welcome'; }
+    else render('welcome');
+  }
+
+  /* ---------- события ---------- */
+  root.addEventListener('click',e=>{
+    if(e.target.closest('[data-close]')) return close();
+    const sw=e.target.closest('[data-swipe]'); if(sw) return commit(sw.dataset.swipe);
+    if(e.target.closest('[data-next]')) return validateAndNext();
+    if(e.target.closest('[data-back]')) return goBack();
+  });
+  btnBack.addEventListener('click',goBack);
+  btnRestart.addEventListener('click',()=>restart(false));
+  launcher.addEventListener('click',open);
+  document.querySelectorAll('[data-open-assistant]').forEach(b=>b.addEventListener('click',open));
+  document.addEventListener('keydown',e=>{
+    if(!root.classList.contains('is-open')) return;
+    if(e.key==='Escape') return close();
+    const typing=/INPUT|TEXTAREA/.test(document.activeElement.tagName);
+    if(!typing&&SWIPE[current]&&(e.key==='ArrowLeft'||e.key==='ArrowRight')){ e.preventDefault(); commit(e.key==='ArrowLeft'?'left':'right'); }
+    if(e.key==='Enter'&&document.activeElement.tagName==='INPUT'&&!SWIPE[current]){ e.preventDefault(); validateAndNext(); }
+    if(e.key==='Tab'){ // простая ловушка фокуса
+      const f=[...panel.querySelectorAll('button:not([hidden]),a[href],input,textarea')].filter(x=>x.offsetParent);
+      if(!f.length) return;
+      if(e.shiftKey&&document.activeElement===f[0]){e.preventDefault();f[f.length-1].focus()}
+      else if(!e.shiftKey&&document.activeElement===f[f.length-1]){e.preventDefault();f[0].focus()}
+    }
+  });
+
+  /* ---------- авто-поп-ап ---------- */
+  const force=new URLSearchParams(location.search).has('assistant');
+  const snoozed=Number(store.get('dbsAsstSnooze')||0);
+  const snoozeActive=Date.now()-snoozed < CONFIG.snoozeDays*864e5;
+  if(force||!snoozeActive) setTimeout(open, force?300:CONFIG.autoOpenDelay);
+  else launcher.classList.remove('is-hidden');
+
+  window.DBSAssistant={open,close,restart:()=>restart(false),config:CONFIG,state};
+})();
+</script>
+</body>
+</html>

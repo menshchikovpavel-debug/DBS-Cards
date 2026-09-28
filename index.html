@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autoservis Praha | DBS Autoservis &amp; Detailing</title>
+<meta name="description" content="DBS je místo, kde získáte kompletní péči o svůj automobil. Odborný servis všech značek, precizní detailing a služby technického centra.">
+<style>
+/* =========================================================
+   FONTS — те же файлы и веса, что на dbservice.cz
+   ========================================================= */
+@font-face{font-family:Avenir;src:url("https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/6803aea8ac07af0303bb757e_Avenir-Light.ttf") format("truetype");font-weight:100;font-style:normal;font-display:swap}
+@font-face{font-family:Avenir;src:url("https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/6803aea8ac07af0303bb7580_Avenir-Roman.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:Avenir;src:url("https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/6803aea8ac07af0303bb7579_Avenir-Medium.woff2") format("woff2"),url("https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/6803aea8ac07af0303bb7594_Avenir-Medium.woff") format("woff");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:Avenir;src:url("https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/6803aea8ac07af0303bb758c_Avenir-Heavy.woff") format("woff");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:Avenir;src:url("https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/6803aea8ac07af0303bb7572_Avenir-Black.woff2") format("woff2"),url("https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/6803aea8ac07af0303bb7581_Avenir-Black.woff") format("woff");font-weight:900;font-style:normal;font-display:swap}
+@font-face{font-family:Ubuntu;src:url("https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/6a7dd8bebeaa0a51d7883b64_Ubuntu-Light.woff2") format("woff2");font-weight:300;font-display:swap}
+@font-face{font-family:Ubuntu;src:url("https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/6a7dd8be965531316824ac22_Ubuntu-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:Ubuntu;src:url("https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/6a7dd8bef1e2f3689bf92096_Ubuntu-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:Ubuntu;src:url("https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/6a7dd8bebda3d5eae4f3e5b0_Ubuntu-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Skater Street";src:url("https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/68ea3267de99678e0390da6e_skater-street.regular.otf") format("opentype");font-weight:400;font-display:swap}
+
+@property --h{syntax:"<number>";inherits:true;initial-value:0}
+
+/* =========================================================
+   TOKENS (dbservice.cz :root)
+   ========================================================= */
+:root{
+  --c100:#fff; --c200:#7c7c7c; --c300:#ebebeb; --c700:#1e2021; --c800:#17191a; --c900:#1e2021;
+  --border:#292c2d; --bg:#181a1c; --radius:24px;
+  --f:Avenir,Arial,sans-serif; --f-ru:Ubuntu,Arial,sans-serif;
+  --red-text:#ef3326; --red-hot:#ff3b3b;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;height:100%}
+body{margin:0;min-height:100%;background:#181a1c;color:#fff;font-family:var(--f);font-size:1rem;font-weight:400;line-height:140%}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;vertical-align:middle;display:inline-block;border:0}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;padding:0;margin:0}
+h1,h2,h3,p{margin:0}
+body.is-locked{overflow:hidden}
+
+/* =========================================================
+   ФОНЫ: серое видео + анимация машины (как на сайте)
+   ========================================================= */
+.bg-static{position:fixed;inset:0;z-index:1;display:flex;width:100%;height:100%;overflow:hidden}
+.bg-static__grey{display:block;width:100%;height:110%}
+.bg-static__grey video{display:block;width:100%;height:100%;object-fit:cover}
+.hero-media{position:absolute;top:0;left:0;right:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-end;width:100%;height:110%;overflow:hidden;pointer-events:none}
+.hero-media__anim{display:flex;align-items:center;width:118vw;margin:-4vh 0 0;transform:translateX(calc(7.6vw - 8px));flex:none}
+.hero-video-wrap{position:relative;width:100%;aspect-ratio:1700/956}
+.hero-fallback{position:absolute;inset:0;background:url('https://res.cloudinary.com/dnsw5tw5r/image/upload/v1774701681/%D0%93%D1%80%D1%83%D0%B7%D0%BE%D0%B2%D0%B8%D0%BA_%D1%81%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%B8_1__0005_result_ocyfim.avif') center/contain no-repeat;opacity:0;transition:opacity .3s ease}
+.hero-fallback.is-visible{opacity:1}
+#hero-video{display:block;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .4s ease}
+#hero-video.is-ready{opacity:1}
+
+/* =========================================================
+   ШАПКА — вертикальная навигация слева (desktop)
+   ========================================================= */
+.headernav{position:fixed;top:24px;left:20px;z-index:9999}
+.wrapp-nav{position:fixed;top:20px;left:20px;display:flex;align-items:center;justify-content:flex-start}
+.logo-link{display:flex;justify-content:center;align-items:flex-start;margin-bottom:10px}
+.logo-link img{width:100px;height:38px}
+.nav_button,.nav_button_tablet{display:flex;justify-content:center;align-items:center;padding:20px;opacity:.5;cursor:pointer;transition:opacity .2s}
+.nav_button:hover,.nav_button_tablet:hover{opacity:1}
+.nav_button img,.nav_button_tablet img{width:19px;height:19px;object-fit:scale-down}
+.nav_button_tablet{display:none}
+.nav_button .icon-close{display:none}
+.button-secondary.btn-book-mob{display:none}
+.menu-wrapper{display:flex;margin-top:60px;transition:opacity .3s ease,transform .3s ease}
+.menu-wrapper.is-collapsed{opacity:0;transform:translateY(-8px);pointer-events:none}
+.wrapper-naw{display:flex;flex-direction:column;align-items:flex-start;width:130px}
+.locales{position:relative}
+.locales__list{display:flex;justify-content:center;align-items:center;gap:16px;width:130px;padding:4px 0;border:1px solid #7c7c7c;border-radius:100px}
+.locales__list a{position:relative;display:block;font-size:12px;font-weight:400;line-height:22.4px;letter-spacing:-.01em;text-transform:uppercase;color:var(--c200)}
+.locales__list a.is-current{color:#fff}
+.locales__list a+a::before{content:"";position:absolute;left:-8.5px;top:50%;width:1px;height:11px;margin-top:-5.5px;background:#7c7c7c;pointer-events:none}
+.nav-links{display:flex;flex-direction:column;gap:4px;align-self:stretch;margin:8px 0 0 -6px}
+.nav-links a{display:block;padding:4px 8px;opacity:.4;font-weight:500;letter-spacing:-.01em;transition:opacity .2s}
+.nav-links a:hover{background:var(--c700);opacity:1;border-radius:8px}
+.nav-links a.is-current{opacity:1}
+.nav-links a span{display:block;font-size:16px;font-weight:300;line-height:22.4px}
+.nav-social{display:flex;justify-content:center;align-items:center;gap:5px;margin:16px 0 0 -6px}
+.nav-social a{display:flex;justify-content:center;align-items:center;width:30px;height:30px;border-radius:8px}
+.nav-social a:hover{background:rgba(255,255,255,.05)}
+.nav-social img{max-width:60%}
+.nav-social a:nth-child(3) img{max-width:50%}
+.mob-menu{display:none}
+
+/* =========================================================
+   КОНТЕНТ
+   ========================================================= */
+.section-4{position:relative;z-index:10;max-width:1920px;margin:0 auto;padding:70px 260px 120px 280px;overflow:hidden}
+.section-wrapper{position:relative;z-index:12;display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch;gap:60px;max-width:1000px;margin:0 auto}
+
+/* --- секция 1 --- */
+.hero-block{display:flex;flex-direction:column;align-items:stretch}
+.header-content{position:relative;z-index:9;max-width:660px;text-align:left}
+.h1{max-width:640px;padding-bottom:20px;font-size:48px;font-weight:500;line-height:115%;letter-spacing:-.01em;color:#fff}
+.hero-sub{max-width:400px;font-size:20px;font-weight:300;line-height:140%;letter-spacing:.03em;color:#fff}
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.btn-route{display:inline-flex;align-items:center;gap:10px;height:36px;padding:0 18px 0 4px;border:1px solid #454545;border-radius:110px;background:rgba(23,25,26,.35);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);font-size:12px;font-weight:600;line-height:1.5;text-transform:uppercase;letter-spacing:-.01em;white-space:nowrap;transition:border-color .25s,background-color .25s,transform .25s}
+.btn-route__dot{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#fff;color:#17191a;box-shadow:0 2px 8px rgba(0,0,0,.35);transition:transform .35s cubic-bezier(.2,.9,.25,1.3)}
+.btn-route__dot svg{width:14px;height:14px}
+.btn-route:hover{border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.06)}
+.btn-route:hover .btn-route__dot{transform:rotate(18deg) scale(1.06)}
+.btn-route:active{transform:scale(.98)}
+.paragraph-large{max-width:390px;margin:32px 0 36px;color:var(--c200);font-size:15px;font-weight:100;line-height:120%;letter-spacing:-.02em}
+.button-secondary{display:inline-flex;flex:0 0 auto;justify-content:center;align-items:center;height:36px;padding:0 18px;border-radius:110px;background:#fff;color:#292c2d;font-family:var(--f);font-size:12px;font-weight:600;line-height:1.5;letter-spacing:-.01em;text-transform:uppercase;text-align:center;white-space:nowrap;transition:transform .25s,background-color .2s}
+.button-secondary:hover{background:#bfbfc0}
+.button-secondary:active{transform:scale(.98)}
+.promo{display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:6px 3rem;width:100%;margin-top:48px;padding:13px 18px 10px;border:1px solid #454545;border-radius:var(--radius);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+.promo__title{margin:0 0 10px;font-size:18px;font-weight:500;line-height:150%;text-transform:uppercase}
+.promo__text{margin-top:4px;color:var(--c300);font-size:15px;font-weight:100}
+
+/* --- секция 2 «Co umíme?» --- */
+.conteiner-pading{display:flex;flex-direction:column;justify-content:center;align-items:stretch;gap:5rem}
+.services{position:relative;z-index:13;width:100%;padding-top:20px}
+.heading-4{margin:20px 0 0;font-size:32px;font-weight:300;line-height:120%;letter-spacing:0}
+.text-weight-regular{display:inline-block;margin-top:6px;color:var(--c200);font-size:15px;font-weight:300;line-height:120%}
+.tabs{display:flex;flex-direction:column;align-items:flex-start;margin-top:40px}
+.tabs-menu{display:flex;gap:12px;margin-bottom:1rem;padding:4px;border-radius:var(--radius);background:var(--c900)}
+.tab-link{display:flex;justify-content:center;align-items:center;padding:6px 12px;border:1px solid transparent;border-radius:var(--radius);color:#fff;font-size:16px;font-weight:500;line-height:inherit;letter-spacing:-.01em;transition:transform .25s,opacity .25s}
+.tab-link.is-current{border-color:var(--border);background:var(--c800)}
+.tabs-content{position:relative;align-self:stretch}
+.tab-pane{display:none;opacity:0;transition:opacity .3s ease}
+.tab-pane.is-active{display:block}
+.tab-pane.is-shown{opacity:1}
+.tab-content-inner{display:flex;flex-direction:column;gap:4.5rem}
+.features{display:flex;flex-direction:column;row-gap:1.125rem}
+.feature-head{margin-top:18px}
+.h5{margin:0 0 .5rem;font-size:1.25rem;font-weight:400;line-height:150%;letter-spacing:-.03em}
+.divider{width:100%;height:1px;background:var(--border)}
+.grid-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+.svc{display:flex;flex-direction:column;flex:1 1 0%;justify-content:space-between;align-items:stretch;gap:1rem;padding:1.25rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--c900);font-weight:500;letter-spacing:-.01em;transition:.567s}
+.svc:hover{background:var(--c800)}
+.svc--red:hover{box-shadow:0 0 16px #fc1010}
+.svc__head{display:flex;flex-direction:column;gap:.5rem}
+.svc__icon{width:2rem;height:2rem}
+.svc__title{font-size:1.125rem;font-weight:500;line-height:150%;letter-spacing:-.03em}
+.svc__title--alt{font-size:18px;line-height:30px;letter-spacing:-.02em}
+.svc__price{display:flex;justify-content:space-between;align-items:center;gap:5px;width:100%}
+.svc__price p{padding:6px 16px;border:1px solid var(--border);border-radius:32px;background:var(--c800);font-size:18px;font-weight:300;line-height:120%;letter-spacing:-.01em;white-space:nowrap}
+.svc__price img{width:20px;height:20px}
+.det{display:flex;flex-direction:column;gap:24px;margin-top:20px}
+.det__head{display:flex;justify-content:flex-start;align-items:flex-end;gap:10px}
+.det__dbs{font-family:"Skater Street",Arial,sans-serif;font-size:40px;line-height:1;letter-spacing:2px}
+.det__title{font-size:20px;font-weight:300;letter-spacing:0}
+.det__grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+
+/* =========================================================
+   Плавающие контакты
+   ========================================================= */
+.contacts{position:fixed;right:24px;bottom:24px;z-index:99;display:flex;flex-direction:column;justify-content:space-between;align-items:center;gap:12px}
+.contacts__icons{display:flex;gap:17px}
+.contacts__icons a{display:block;width:40px;height:40px;border-radius:99px;box-shadow:0 0 34px rgba(167,167,167,.43)}
+.contacts__icons img{display:block;width:40px;height:40px}
+.contacts__phone{display:block;padding:10px;border-radius:var(--radius);background:#fff;box-shadow:0 0 34px rgba(167,167,167,.43)}
+.contacts__phone span{display:block;color:var(--c800);font-size:16px;font-weight:600;line-height:100%}
+
+/* =========================================================
+   ≥1440
+   ========================================================= */
+@media (min-width:1440px){
+  .section-4{line-height:145%}
+  .section-wrapper{gap:80px;max-width:1100px}
+  .hero-sub{letter-spacing:.02em;line-height:120%}
+  .paragraph-large{letter-spacing:.01em}
+  .text-weight-regular{letter-spacing:.01em}
+  .promo__title{letter-spacing:.01em}
+  .promo__text{letter-spacing:.3px}
+  .svc__title--alt{white-space:nowrap;letter-spacing:0}
+  .hero-media__anim{margin-top:-12vh}
+  .contacts__icons a,.contacts__icons img{width:50px;height:50px}
+  .contacts__phone span{font-size:1.2rem}
+}
+@media (min-width:1920px){
+  .section-wrapper{max-width:1200px}
+  .nav-links a{padding:8px 16px}
+  .nav-links a.is-current{padding-top:6px;padding-bottom:6px}
+  .hero-media{justify-content:center;top:-5vh}
+  .hero-media__anim{align-self:flex-end;margin-top:-10vh}
+}
+
+/* =========================================================
+   ≤991 — планшет: верхняя плашка + выпадающее меню
+   ========================================================= */
+@media (max-width:991px){
+  .headernav{top:0;left:0;right:0}
+  .wrapp-nav{position:relative;top:0;left:0;z-index:10;justify-content:space-between;align-items:stretch;padding:10px 40px 0;border-bottom:1px solid var(--border);border-radius:0 0 16px 16px;background:var(--c800)}
+  .logo-link img{width:105px;height:40px}
+  .nav_button{display:none;padding:16px}
+  .nav_button_tablet{display:flex;padding:16px}
+  .nav_button img,.nav_button_tablet img{width:20px;height:20px;object-fit:cover}
+  .menu-wrapper{display:none;position:fixed;top:51px;left:0;right:0;margin-top:0;border-left:1px solid var(--border);border-radius:0 0 26px 26px}
+  .menu-wrapper.is-open{display:flex;animation:menuIn .3s ease both}
+  .wrapper-naw{flex:1 1 0%;width:auto;align-items:stretch;gap:10px;padding:24px 0 40px 40px;border:1px solid var(--border);border-top:0;border-radius:0 0 26px 26px;background:rgba(23,25,26,0);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 0 34px rgba(0,0,0,.2)}
+  .locales{align-self:flex-start}
+  .locales__list{width:auto;padding:4px 16px}
+  .locales__list a{font-size:14px}
+  .nav-links{margin-top:0}
+  .nav-social{justify-content:flex-start;margin-top:10px}
+  .section-4{padding:140px 40px 120px}
+  .header-content{max-width:560px}
+  .h1{font-size:44px;max-width:560px}
+  .features{row-gap:1rem}
+  .hero-media{top:100px;justify-content:flex-start;align-items:flex-end}
+  .hero-media__anim{position:relative;width:1180px;margin:0 -7vw 200px 0;transform:none}
+}
+@keyframes menuIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+/* =========================================================
+   ≤767
+   ========================================================= */
+@media (max-width:767px){
+  .section-4{padding-top:250px}
+  .h1{font-size:40px;max-width:none}
+  .button-secondary,.btn-route{font-size:13px}
+  .promo{flex-direction:column;justify-content:space-between;align-items:flex-start;row-gap:16px;margin-top:32px;padding:16px}
+  .promo__title{text-transform:none}
+  .features{row-gap:0;margin-bottom:20px}
+  .divider{margin-bottom:20px}
+  .text-weight-regular{font-size:16px}
+  .svc{max-width:400px;padding:16px}
+  .heading-4{font-size:2rem}
+  .grid-cards{grid-template-columns:1fr 1fr}
+  .det__grid{display:flex;flex-flow:row;overflow:auto}
+  .hero-media{top:0;right:0;bottom:auto;left:auto;height:auto;margin-top:100px}
+  .hero-media__anim{position:relative;top:-60px;left:80px;width:720px;margin:0 70px 0 0}
+}
+
+/* =========================================================
+   ≤479 — мобильный: логотип + кнопка, нижний таб-бар
+   ========================================================= */
+@media (max-width:479px){
+  .headernav{position:relative}
+  .wrapp-nav{gap:10px;justify-content:space-between;align-items:center;padding:16px;border-bottom:0}
+  .logo-link{position:relative;top:-4px;margin-bottom:0}
+  .logo-link img{width:78px;height:30px}
+  .button-secondary.btn-book-mob{display:inline-flex}
+  .nav_button_tablet{display:none}
+  .menu-wrapper{position:fixed;top:auto;right:16px;bottom:16px;left:16px;z-index:999;margin-left:0;border:1px solid var(--border);border-radius:26px;overflow:hidden}
+  .wrapper-naw{position:relative;z-index:1000;padding:24px 0 80px 24px;border:0;border-radius:26px;overflow:hidden}
+  .menu-wrapper.is-open{animation:sheetIn .35s cubic-bezier(.2,.9,.25,1) both}
+  .mob-menu{position:fixed;right:16px;bottom:16px;left:16px;z-index:1000;display:flex;justify-content:space-between;align-items:stretch;gap:16px;height:52px;padding:6px;border:1px solid var(--border);border-radius:40px;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 0 34px rgba(0,0,0,.18)}
+  .mob-menu a{display:flex;justify-content:center;align-items:center;min-width:40px;min-height:40px;padding:0 9px;color:#fff}
+  .mob-menu a.is-current{border-radius:var(--radius);background:var(--c300);color:var(--c800)}
+  .mob-menu svg{display:block}
+  .nav_button.mob{display:flex;width:40px;height:40px;padding:0;border:1px solid #fff;border-radius:var(--radius);opacity:1}
+  .nav_button.mob.is-open .icon-open{display:none}
+  .nav_button.mob.is-open .icon-close{display:block}
+  .contacts{right:16px;bottom:80px}
+  .section-4{padding:250px 16px 120px}
+  .hero-sub{font-size:19px}
+  .button-secondary,.btn-route{font-size:16px}
+  .heading-4{font-size:28px;font-weight:700}
+  .services{padding-top:40px}
+  .promo__title{font-size:24px;font-weight:500}
+  .promo__text{color:#fafafa;font-weight:100}
+  .text-weight-regular{font-weight:100}
+  .features{margin-top:20px;margin-bottom:0}
+  .divider{margin-bottom:0}
+  .grid-cards{display:flex;flex-flow:row;gap:12px;overflow:auto}
+  .svc{min-width:160px;max-width:none;padding:20px}
+  .svc__head{height:88px}
+  .svc__price p{font-size:1rem}
+  .det__grid{padding:10px 0 10px 10px}
+  .det__head{padding-left:10px}
+  .hero-media{top:7%;right:0;margin-top:0}
+  .hero-media__anim{justify-content:flex-end;align-items:stretch;top:0;left:20px;width:760px;margin:0}
+}
+@keyframes sheetIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* =========================================================
+   АССИСТЕНТ — кнопка-лаунчер (стопка карт)
+   ========================================================= */
+.dbs-launcher{position:fixed;left:24px;bottom:24px;z-index:9000;display:block;padding:0;-webkit-tap-highlight-color:transparent;transition:transform .55s cubic-bezier(.2,.9,.25,1.15),opacity .35s ease}
+.dbs-launcher.is-hidden{transform:translateY(28px) scale(.94);opacity:0;pointer-events:none}
+.dbs-launcher__ghost{position:absolute;inset:0;border-radius:999px;background:linear-gradient(165deg,#28292c,#161719);border:1px solid rgba(255,255,255,.08);box-shadow:0 10px 30px rgba(0,0,0,.45);transform:rotate(-3deg) translate(-3px,-7px);transform-origin:12% 50%;transition:transform .55s cubic-bezier(.2,.9,.25,1.2)}
+.dbs-launcher__card{--h:0;position:relative;isolation:isolate;display:flex;align-items:center;gap:12px;height:60px;padding:0 24px 0 8px;border-radius:999px;overflow:hidden;border:1px solid color-mix(in srgb,var(--red-hot) calc(var(--h)*100%),rgba(255,255,255,.13));box-shadow:0 18px 40px rgba(0,0,0,.45),0 0 calc(var(--h)*30px) rgba(255,36,36,calc(var(--h)*.55));transform:rotate(calc(var(--h)*2.2deg)) translateX(calc(var(--h)*4px));transform-origin:15% 60%;transition:--h .6s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.9,.25,1.2)}
+.dbs-launcher__card::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(90% 130% at calc(8% + 70%*var(--h)) 0%,rgba(255,255,255,.13),rgba(255,255,255,0) 70%),linear-gradient(165deg,#3d3e41 0%,#2a2b2e 55%,#1e1f22 100%)}
+.dbs-launcher__card::after{content:"";position:absolute;inset:0;z-index:-1;opacity:var(--h);background:radial-gradient(75% 150% at calc(58% + 48%*var(--h)) 60%,#d8232a 0%,rgba(172,22,28,.88) 30%,rgba(92,14,18,.45) 62%,rgba(28,28,30,0) 88%),linear-gradient(90deg,#1b1c1e 0%,#2a1415 100%)}
+.dbs-launcher__dot{position:relative;display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:50%;border:1px solid color-mix(in srgb,rgba(255,255,255,0) calc(var(--h)*100%),rgba(255,255,255,.22));background:color-mix(in srgb,#fff calc(var(--h)*100%),rgba(255,255,255,.07));color:color-mix(in srgb,#141516 calc(var(--h)*100%),#fff);box-shadow:0 6px 16px rgba(0,0,0,.4)}
+.dbs-launcher__dot svg{width:22px;height:22px;transition:transform .55s cubic-bezier(.2,.9,.25,1.3)}
+.dbs-launcher__dot::after{content:"";position:absolute;top:0;right:0;width:10px;height:10px;border-radius:50%;background:var(--red-hot);border:2px solid #232426;box-shadow:0 0 10px rgba(255,40,40,.9);animation:livePulse 2.4s ease-in-out infinite}
+@keyframes livePulse{0%,100%{box-shadow:0 0 6px rgba(255,40,40,.7)}50%{box-shadow:0 0 14px rgba(255,40,40,1),0 0 0 4px rgba(255,59,59,.18)}}
+.dbs-launcher__txt{display:flex;flex-direction:column;align-items:flex-start;text-align:left;white-space:nowrap}
+.dbs-launcher__txt b{font-size:15px;font-weight:500;line-height:1.2;letter-spacing:-.01em;color:#fff;text-shadow:0 0 calc(var(--h)*16px) rgba(214,230,255,calc(var(--h)*.7))}
+.dbs-launcher__txt small{margin-top:2px;font-size:12px;font-weight:400;line-height:1.2;color:color-mix(in srgb,#fff calc(var(--h)*70%),#8e9193)}
+.dbs-launcher__txt .short{display:none}
+.dbs-launcher:hover .dbs-launcher__card,.dbs-launcher:focus-visible .dbs-launcher__card,.dbs-launcher.is-peek .dbs-launcher__card{--h:1}
+.dbs-launcher:hover .dbs-launcher__ghost,.dbs-launcher:focus-visible .dbs-launcher__ghost,.dbs-launcher.is-peek .dbs-launcher__ghost{transform:rotate(-5.5deg) translate(-7px,-10px)}
+.dbs-launcher:hover .dbs-launcher__dot svg,.dbs-launcher.is-peek .dbs-launcher__dot svg{transform:rotate(-12deg) scale(1.05)}
+.dbs-launcher:active .dbs-launcher__card{transform:rotate(1deg) scale(.97)}
+.dbs-launcher:focus-visible{outline:none}
+.dbs-launcher:focus-visible .dbs-launcher__card{outline:2px solid #fff;outline-offset:3px}
+body.menu-open .dbs-launcher{opacity:0;pointer-events:none}
+@media (max-width:479px){
+  .dbs-launcher{left:16px;bottom:80px}
+  .dbs-launcher__card{height:52px;gap:10px;padding:0 18px 0 6px}
+  .dbs-launcher__dot{width:38px;height:38px}
+  .dbs-launcher__dot svg{width:19px;height:19px}
+  .dbs-launcher__txt small,.dbs-launcher__txt .long{display:none}
+  .dbs-launcher__txt .short{display:inline}
+}
+
+/* =========================================================
+   АССИСТЕНТ — модальное окно
+   ========================================================= */
+.dbs-asst{position:fixed;inset:0;z-index:100000;display:grid;place-items:center;padding:16px;visibility:hidden;pointer-events:none;font-family:var(--f)}
+.dbs-asst:lang(ru){font-family:var(--f-ru)}
+.dbs-asst.is-open{visibility:visible;pointer-events:auto}
+.dbs-asst__backdrop{position:absolute;inset:0;background:rgba(9,10,11,.55);-webkit-backdrop-filter:blur(16px) saturate(.9);backdrop-filter:blur(16px) saturate(.9);opacity:0;transition:opacity .4s ease}
+.dbs-asst.is-open .dbs-asst__backdrop{opacity:1}
+.dbs-asst__panel{position:relative;width:480px;max-width:100%;padding:0 20px 34px;border-radius:36px;background:rgba(24,26,28,.4);border:1px solid rgba(255,255,255,.09);box-shadow:0 50px 120px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.07);-webkit-backdrop-filter:blur(30px) saturate(1.1);backdrop-filter:blur(30px) saturate(1.1);transform:translateY(22px) scale(.96);opacity:0;transition:transform .55s cubic-bezier(.2,.9,.25,1.12),opacity .35s ease;outline:none}
+.dbs-asst.is-open .dbs-asst__panel{transform:none;opacity:1}
+.dbs-asst__head{display:flex;align-items:center;justify-content:space-between;height:86px;padding:6px 13px 0 14px}
+.dbs-asst__logo{height:22px;width:auto}
+.dbs-asst__tools{display:flex;align-items:center}
+.hbtn{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;color:#fff;transition:color .2s,background-color .2s,opacity .2s}
+.hbtn svg{width:24px;height:24px}
+.hbtn:hover:not(:disabled){background:rgba(255,255,255,.07)}
+.hbtn:disabled{color:#5f6163;cursor:default}
+.hbtn:focus-visible,.pill:focus-visible,.day:focus-visible,.slot:focus-visible{outline:2px solid #fff;outline-offset:2px}
+
+/* stage + ghost */
+.dbs-stage{position:relative;height:438px;margin-top:32px}
+.dbs-ghost{position:absolute;inset:0;border-radius:32px;background:rgba(0,0,0,.26);box-shadow:inset 0 3px 14px rgba(0,0,0,.6),inset 0 0 0 1px rgba(0,0,0,.35),inset 0 -1px 0 rgba(255,255,255,.05)}
+
+/* ---------- карточка ---------- */
+.sc{--pl:0;--pr:0;--p:max(var(--pl),var(--pr));--rot:0deg;position:absolute;inset:0;display:flex;flex-direction:column;padding:20px;border-radius:32px;color:#fff;box-shadow:0 30px 60px rgba(0,0,0,.45),0 2px 0 rgba(255,255,255,.02);-webkit-backdrop-filter:blur(18px) saturate(1.15);backdrop-filter:blur(18px) saturate(1.15);touch-action:pan-y;user-select:none;-webkit-user-select:none;transform-origin:50% 85%;will-change:transform;cursor:grab}
+.sc.is-drag{cursor:grabbing}
+.sc--form{cursor:auto}
+.sc--final{cursor:auto;touch-action:auto}
+.sc.enter{animation:cardIn .42s cubic-bezier(.2,.85,.25,1) both}
+@keyframes cardIn{from{opacity:0;transform:translateY(10px) scale(.965)}to{opacity:1;transform:none}}
+.sc::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(150deg,rgba(255,255,255,.34),rgba(255,255,255,.08) 34%,rgba(255,255,255,.04) 62%,rgba(255,255,255,.16));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;z-index:3}
+.sc__bg{position:absolute;inset:0;z-index:0;overflow:hidden;border-radius:inherit;background:rgba(10,11,13,.3);pointer-events:none;isolation:isolate}
+.sc__bg i{position:absolute;inset:0}
+.sc__bg-rest{opacity:calc(1 - var(--p)*.9);background:radial-gradient(95% 70% at calc(10% + 75%*var(--pr) - 5%*var(--pl)) 0%,rgba(255,255,255,.09),rgba(255,255,255,0) 68%),linear-gradient(166deg,rgba(92,96,104,.3) 0%,rgba(40,42,47,.22) 40%,rgba(18,19,22,.3) 74%,rgba(12,13,15,.4) 100%)}
+.sc__bg-tex{background:url("Assets/Overlay%20Pattern.png") center/700px repeat;mix-blend-mode:soft-light;opacity:.4}
+.sc__bg-r{opacity:var(--pr);background:radial-gradient(72% 115% at calc(64% + 44%*var(--pr)) 56%,#dc242b 0%,rgba(186,25,31,.92) 24%,rgba(130,17,22,.7) 48%,rgba(66,14,17,.3) 72%,rgba(28,28,30,0) 92%),linear-gradient(92deg,rgba(18,19,21,.55) 0%,rgba(24,19,20,.6) 40%,rgba(52,20,22,.85) 72%,#5e1418 100%)}
+.sc__bg-l{opacity:var(--pl);background:radial-gradient(72% 115% at calc(36% - 44%*var(--pl)) 56%,#dc242b 0%,rgba(186,25,31,.92) 24%,rgba(130,17,22,.7) 48%,rgba(66,14,17,.3) 72%,rgba(28,28,30,0) 92%),linear-gradient(268deg,rgba(18,19,21,.55) 0%,rgba(24,19,20,.6) 40%,rgba(52,20,22,.85) 72%,#5e1418 100%)}
+.sc > :not(.sc__bg){position:relative;z-index:1}
+
+.sc__top{display:flex;align-items:center;justify-content:space-between;flex:none;min-height:40px}
+.sc__badge{--h:0;display:flex;align-items:center;flex:none;color:#fff;transform:rotate(calc(var(--rot)*-1)) scale(calc(1 + var(--h)*.08));transform-origin:center}
+.sc__badge--l{--h:var(--pl)}
+.sc__badge--r{--h:var(--pr)}
+.sc__badge svg{display:block;width:auto;height:40px;filter:drop-shadow(0 2px 10px rgba(0,0,0,.5)) drop-shadow(0 0 calc(var(--h)*14px) rgba(255,255,255,calc(var(--h)*.5)))}
+.sc__chip{display:inline-flex;align-items:center;height:32px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#d4d6d8;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:62%}
+
+.sc__body{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;justify-content:center;padding:8px 0}
+.sc--form .sc__body,.sc--final .sc__body{justify-content:flex-start;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;margin:0 -6px;padding:18px 6px 14px}
+.sc--final .sc__body{justify-content:center}
+.sc__body::-webkit-scrollbar{display:none}
+.sc__body > *{flex-shrink:0}
+.sc__title{--glow:0 0 calc(3px*var(--p)) rgba(235,243,255,calc(.55*var(--p))),0 0 calc(18px*var(--p)) rgba(200,222,255,calc(.5*var(--p)));font-size:36px;font-weight:600;line-height:1.12;letter-spacing:-.005em;color:#fff;text-shadow:var(--glow)}
+.sc__title em{font-style:normal;color:color-mix(in srgb,#fff calc(var(--p)*100%),var(--red-text));text-shadow:0 0 26px rgba(255,42,32,calc(.72*(1 - var(--p)))),0 0 8px rgba(255,42,32,calc(.42*(1 - var(--p)))),var(--glow)}
+.sc--form .sc__title,.sc--final .sc__title{--glow:0 0 calc(2px*var(--p)) rgba(235,243,255,calc(.5*var(--p))),0 0 calc(12px*var(--p)) rgba(200,222,255,calc(.35*var(--p)))}
+.sc--form .sc__title,.sc--final .sc__title{font-size:28px}
+.sc__text{margin-top:22px;font-size:16px;font-weight:400;line-height:1.4;color:#fff}
+.sc__text b{font-weight:600}
+.sc--form .sc__text,.sc--final .sc__text{margin-top:10px;font-size:15px;color:#cfd1d3}
+
+/* пилюли-кнопки на карте */
+.sc__acts{display:flex;gap:20px;flex:none}
+.sc--final .sc__acts .pill{flex:1 1 100%}
+.pill{--h:0;--pad:10px;--dot:40px;position:relative;flex:1 1 0;min-width:0;display:flex;align-items:center;height:60px;padding:var(--pad);border-radius:40px;border:1px solid color-mix(in srgb,var(--red-hot) calc(var(--h)*100%),transparent);background:color-mix(in srgb,rgba(112,13,17,.7) calc(var(--h)*100%),transparent);box-shadow:0 0 calc(var(--h)*30px) rgba(255,36,36,calc(var(--h)*.68)),inset 0 0 calc(var(--h)*20px) rgba(255,70,70,calc(var(--h)*.4));color:#fff;font-size:16px;font-weight:400;line-height:1;text-decoration:none;-webkit-tap-highlight-color:transparent;transition:transform .15s ease}
+.pill::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:linear-gradient(135deg,rgba(255,255,255,.62) 0%,rgba(255,255,255,.12) 26%,rgba(255,255,255,.03) 50%,rgba(255,255,255,.1) 74%,rgba(255,255,255,.4) 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:calc(1 - var(--h));pointer-events:none}
+.pill--l{--h:var(--pl);padding-left:calc(var(--pad)*2 + var(--dot))}
+.pill--r{--h:var(--pr);padding-right:calc(var(--pad)*2 + var(--dot))}
+.pill--r.is-ready{--h:max(var(--pr),.9)}
+.pill:active{transform:scale(.97)}
+.pill:hover{background:color-mix(in srgb,rgba(112,13,17,.78) calc(var(--h)*100%),rgba(255,255,255,.07))}
+.pill__dot{position:absolute;top:var(--pad);display:grid;place-items:center;width:var(--dot);height:var(--dot);border-radius:50%;background:color-mix(in srgb,#fff calc(var(--h)*100%),transparent);color:color-mix(in srgb,#141516 calc(var(--h)*100%),#fff);box-shadow:0 2px 10px rgba(0,0,0,calc(var(--h)*.3))}
+.pill__dot::before{content:"";position:absolute;inset:0;border-radius:50%;padding:1.5px;background:linear-gradient(135deg,rgba(255,255,255,.9) 0%,rgba(255,255,255,.22) 24%,rgba(255,255,255,.04) 48%,rgba(255,255,255,.16) 72%,rgba(255,255,255,.6) 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:calc(1 - var(--h));pointer-events:none}
+.pill--l .pill__dot{left:var(--pad)}
+.pill--r .pill__dot{right:var(--pad)}
+.pill__dot svg{width:22px;height:22px;position:relative}
+.pill__label{flex:1 1 auto;min-width:0;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 0 calc(var(--h)*12px) rgba(255,255,255,calc(var(--h)*.45))}
+.sc .pill--l{opacity:calc(1 - var(--pr)*.15)}
+.sc .pill--r{opacity:calc(1 - var(--pl)*.15)}
+
+/* поля форм */
+.field{margin-top:14px}
+.field label{display:block;margin:0 0 7px;color:#9a9c9f;font-size:13px;font-weight:500}
+.input,.textarea{width:100%;padding:13px 16px;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.26);box-shadow:inset 0 1px 2px rgba(0,0,0,.35);color:#fff;font:inherit;font-size:16px;line-height:1.35;outline:none;transition:border-color .2s,box-shadow .2s,background-color .2s;user-select:text;-webkit-user-select:text}
+.input::placeholder,.textarea::placeholder{color:#6f7174}
+.input:focus,.textarea:focus{border-color:rgba(255,59,59,.85);background:rgba(0,0,0,.34);box-shadow:0 0 0 4px rgba(229,37,43,.16),0 0 22px rgba(255,40,40,.18)}
+.textarea{display:block;height:112px;resize:none}
+.input.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase}
+.input.mono::placeholder{font-family:inherit;letter-spacing:0;text-transform:none}
+.counter{display:flex;justify-content:space-between;gap:10px;margin-top:6px;font-size:12px;color:#7c7c7c}
+.counter .warn{color:var(--red-hot)}
+.err{min-height:16px;font-size:12px;color:#ff6b61}
+.note{display:flex;gap:10px;align-items:flex-start;margin-top:8px;color:#b9bcbe;font-size:12.5px;line-height:1.45}
+.note i{display:grid;place-items:center;flex:none;width:20px;height:20px;border-radius:50%;background:#fff;color:#111;font-style:normal;font-size:12px;font-weight:900}
+.days{display:flex;gap:8px;margin:14px -6px 0;padding:4px 6px 6px;overflow-x:auto;scrollbar-width:none;touch-action:pan-x;scroll-snap-type:x proximity;scroll-padding-inline:6px;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
+.days::-webkit-scrollbar{display:none}
+.day,.slot{--h:0;position:relative;flex:none;border-radius:16px;border:1px solid color-mix(in srgb,var(--red-hot) calc(var(--h)*100%),rgba(255,255,255,.12));background:color-mix(in srgb,rgba(112,13,17,.8) calc(var(--h)*100%),rgba(255,255,255,.035));box-shadow:0 0 calc(var(--h)*18px) rgba(255,36,36,calc(var(--h)*.6)),inset 0 0 calc(var(--h)*12px) rgba(255,70,70,calc(var(--h)*.35));color:#fff;transition:--h .3s ease,border-color .3s,background-color .3s,box-shadow .3s}
+.day{width:58px;padding:9px 0 8px;text-align:center;scroll-snap-align:start}
+.day small{display:block;color:#9a9c9f;font-size:11px;font-weight:500;text-transform:uppercase}
+.day b{display:block;margin-top:2px;font-size:19px;font-weight:600;line-height:1.2}
+.slots{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:10px}
+#fDateErr:empty{display:none}
+.slot{height:40px;font-size:14px;font-weight:500}
+.day:hover,.slot:hover{border-color:color-mix(in srgb,var(--red-hot) calc(var(--h)*100%),rgba(255,255,255,.3))}
+.day.is-on,.slot.is-on{--h:1}
+.day.is-on small{color:#ffd9d6}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}
+.summary{display:flex;align-items:center;gap:10px;margin-top:14px;padding:6px 14px 6px 6px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);font-size:13px;min-width:0}
+.summary i{display:grid;place-items:center;flex:none;width:28px;height:28px;border-radius:50%;background:#fff;color:#111}
+.summary i svg{width:14px;height:14px}
+.summary span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#d4d6d8}
+.summary b{font-weight:600;color:#fff}
+.consent{margin-top:12px;color:#7c7c7c;font-size:11.5px;line-height:1.45}
+.mini{display:flex;gap:8px;margin-top:18px}
+.mini a{flex:1;min-width:0;display:flex;align-items:center;gap:8px;height:44px;padding:0 12px 0 6px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);font-size:13px;font-weight:500;white-space:nowrap;transition:background-color .2s,border-color .2s}
+.mini a:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25)}
+.mini span{display:grid;place-items:center;flex:none;width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff}
+.mini svg{width:auto;height:16px}
+.sc.shake{animation:none}
+
+/* прогресс + подсказка */
+.dbs-progress{display:flex;gap:16px;margin:0 18px}
+.dbs-progress i{position:relative;flex:1;height:3px;border-radius:3px;background:rgba(255,255,255,.2);overflow:hidden}
+.dbs-progress i::after{content:"";position:absolute;inset:0;border-radius:inherit;background:#fff;box-shadow:0 0 8px rgba(255,255,255,.6);transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.dbs-progress i.is-on::after{transform:scaleX(1)}
+.dbs-hint{display:flex;align-items:flex-start;gap:14px;min-height:36px;margin:34px 18px 0;color:#fff;font-size:15px;line-height:18px;transition:opacity .3s}
+.dbs-hint svg{flex:none;width:28px;height:30px;margin-top:-4px;color:#fff}
+.dbs-hint:empty{opacity:0}
+
+/* =========================================================
+   МОБИЛЬНЫЙ модал
+   ========================================================= */
+@media (max-width:600px){
+  .dbs-asst{padding:16px}
+  .dbs-asst__panel{width:100%;max-width:420px;padding:0 20px 26px;border-radius:32px}
+  .dbs-asst__head{height:66px;padding:4px 6px 0 8px}
+  .dbs-asst__logo{height:20px}
+  .hbtn{width:32px;height:32px}
+  .hbtn svg{width:22px;height:22px}
+  .dbs-stage{height:min(373px,calc(100dvh - 250px));min-height:320px;margin-top:24px}
+  .sc{padding:20px;border-radius:28px}
+  .dbs-ghost{border-radius:28px}
+  .sc__top{min-height:30px}
+  .sc__badge svg{height:30px}
+  .sc__chip{height:28px;padding:0 12px;font-size:11px}
+  .sc__text{margin-top:20px}
+  .sc--form .sc__title,.sc--final .sc__title{font-size:25px}
+  .sc--form .sc__body,.sc--final .sc__body{padding-top:14px}
+  .sc__acts{gap:12px}
+  .sc__acts{gap:16px}
+  .pill{--pad:6px;--dot:28px;height:40px;font-size:14.5px;border-radius:24px}
+  .pill__dot svg{width:16px;height:16px}
+  .dbs-asst:lang(ru) .pill__label{font-size:13px}
+  .days{margin-top:12px}
+  .slots{grid-template-columns:repeat(4,1fr)}
+  .fields{grid-template-columns:1fr}
+  .dbs-progress{gap:11px;margin:0 16px}
+  .dbs-hint{margin:26px 16px 0;font-size:14px;gap:12px}
+}
+@media (max-width:360px){
+  .sc__title{font-size:31px}
+  .pill{--pad:5px;--dot:26px;height:36px;font-size:13px}
+  .pill__dot svg{width:15px;height:15px}
+}
+@media (max-height:640px) and (max-width:600px){
+  .dbs-asst__head{height:54px}
+  .dbs-hint{display:none}
+  .dbs-stage{margin-top:18px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= ФОН ================= -->
+<div class="bg-static" aria-hidden="true">
+  <div class="bg-static__grey">
+    <video autoplay muted playsinline loop webkit-playsinline preload="auto" src="https://res.cloudinary.com/dtr0ezm1n/video/upload/v1751396341/GrayColor_ksovmv.mp4"></video>
+  </div>
+</div>
+<section class="hero-media" aria-hidden="true">
+  <div class="hero-media__anim">
+    <div class="hero-video-wrap">
+      <div class="hero-fallback"></div>
+      <video id="hero-video" autoplay muted playsinline webkit-playsinline preload="metadata" src="https://res.cloudinary.com/dnsw5tw5r/video/upload/v1770200611/home_page-anim.mp4"></video>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ШАПКА ================= -->
+<section class="headernav">
+  <div class="wrapp-nav">
+    <a class="logo-link" href="https://www.dbservice.cz/" aria-label="home">
+      <img src="https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/68056f6d9d9f83e31f094aec_Group%20859.svg" alt="DBS" width="100" height="38">
+    </a>
+    <a class="button-secondary btn-book-mob" href="https://booking.dbservice.cz/">On-line rezervace</a>
+    <button class="nav_button" id="navToggle" type="button" aria-label="Menu" aria-expanded="true">
+      <img src="https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/680723ec291bb71c726b6d81_SVG.svg" alt="">
+    </button>
+    <button class="nav_button_tablet" id="navToggleTablet" type="button" aria-label="Menu" aria-expanded="false">
+      <img src="https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/680723ec291bb71c726b6d81_SVG.svg" alt="">
+    </button>
+  </div>
+  <nav class="menu-wrapper" id="menu" aria-label="Hlavní menu">
+    <div class="wrapper-naw">
+      <div class="locales">
+        <div class="locales__list">
+          <a href="https://www.dbservice.cz/" hreflang="cs-CZ" class="is-current" aria-current="page">Čr</a>
+          <a href="https://www.dbservice.cz/en" hreflang="en">En</a>
+          <a href="https://www.dbservice.cz/ru" hreflang="ru">Ru</a>
+          <a href="https://www.dbservice.cz/ua" hreflang="uk">UA</a>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="https://www.dbservice.cz/" class="is-current" aria-current="page"><span>Domů</span></a>
+        <a href="https://www.dbservice.cz/service-page"><span>Služby</span></a>
+        <a href="https://www.dbservice.cz/price"><span>Ceník</span></a>
+        <a href="https://www.dbservice.cz/blog"><span>Naše práce</span></a>
+        <a href="https://www.dbservice.cz/special-offers"><span>Akce</span></a>
+        <a href="https://www.dbservice.cz/b2b"><span>Pro firmy</span></a>
+        <a href="https://www.dbservice.cz/how-to-find"><span>Jak nás najdete</span></a>
+      </div>
+      <div class="nav-social">
+        <a href="https://www.instagram.com/dbspraha" target="_blank" rel="noopener" aria-label="instagram"><img src="https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/680630f3cbcd41972061438b_8679433_instagram_fill_icon%202.svg" alt=""></a>
+        <a href="https://www.facebook.com/dbservice.cz" target="_blank" rel="noopener" aria-label="facebook"><img src="https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/6803aea8ac07af0303bb7510_facebook-svgrepo-com%202.svg" alt=""></a>
+        <a href="https://www.tiktok.com/@dbspraha" target="_blank" rel="noopener" aria-label="tik-tok"><img src="https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/68062de0521b2704b4eda55d_svgexport-18.svg" alt=""></a>
+        <a href="https://www.youtube.com/@DBServicepraha" target="_blank" rel="noopener" aria-label="youtube"><img src="https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/680635e6c2afd961833b213c_2559760_media_social_video_youtube_icon%201.svg" alt=""></a>
+      </div>
+    </div>
+  </nav>
+  <div class="mob-menu">
+    <a href="https://www.dbservice.cz/" class="is-current" aria-label="Domů"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M17.4167 21.9963H4.58333C2.05608 21.9963 0 19.9402 0 17.413V8.90998C0 7.38373 0.755333 5.9629 2.02033 5.1104L8.43608 0.780063C9.9935 -0.270438 12.0065 -0.270438 13.5639 0.780063L19.9806 5.1104C21.2447 5.9629 22 7.38281 22 8.90998V17.413C22 19.9402 19.9439 21.9963 17.4167 21.9963ZM11 1.8269C10.4647 1.8269 9.92933 1.98456 9.46183 2.30081L3.04517 6.63023C2.28617 7.14173 1.83333 7.99331 1.83333 8.90906V17.4121C1.83333 18.9282 3.06717 20.1621 4.58333 20.1621H17.4167C18.9328 20.1621 20.1667 18.9282 20.1667 17.4121V8.90998C20.1667 7.99423 19.7138 7.14173 18.9558 6.63115L12.5382 2.30081C12.0707 1.98456 11.5353 1.8269 11 1.8269Z" fill="currentColor"/></svg></a>
+    <a href="https://www.dbservice.cz/service-page" aria-label="Služby"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3.38008 22.0004C3.35074 22.0004 3.32233 22.0004 3.29299 22.0004C2.35616 21.9756 1.49358 21.5769 0.864743 20.8784C-0.298507 19.5868 -0.195841 17.4097 1.08841 16.1255L6.46741 10.7474C6.69933 10.5145 6.78274 10.169 6.68833 9.82246C6.36016 8.61429 6.32808 7.36946 6.59483 6.12279C7.24383 3.08404 9.73991 0.674123 12.8071 0.125956C13.7292 -0.0390438 14.6542 -0.0427104 15.5589 0.11954C16.229 0.23779 16.7497 0.692456 16.9522 1.33412C17.1823 2.06654 16.9495 2.87504 16.3271 3.49654L14.2673 5.52879C13.6642 6.13196 13.5725 7.07796 14.0638 7.67837C14.3462 8.02487 14.744 8.22654 15.184 8.24854C15.6167 8.26687 16.042 8.10646 16.3491 7.80029L18.7141 5.46279C19.2082 4.96871 19.9351 4.78904 20.6116 5.00354C21.2743 5.21162 21.7611 5.76254 21.8812 6.43996C22.0416 7.34471 22.0388 8.27146 21.8747 9.19271C21.3247 12.2608 18.9148 14.7569 15.8761 15.405C14.6267 15.6717 13.3818 15.6396 12.1764 15.3105C11.8308 15.2152 11.4852 15.2995 11.2524 15.5315L5.77441 21.0085C5.14191 21.641 4.27383 22.0004 3.38008 22.0004ZM14.3086 1.82729C13.9217 1.82729 13.5257 1.85937 13.1297 1.92996C10.7886 2.34887 8.88191 4.18771 8.38691 6.50504C8.18158 7.46296 8.20541 8.41721 8.45658 9.34029C8.72241 10.3138 8.45658 11.3487 7.76358 12.0426L2.38458 17.4207C1.78874 18.0165 1.71358 19.0799 2.22783 19.651C2.51658 19.9718 2.91258 20.1551 3.34158 20.1661C3.76416 20.1835 4.17483 20.0167 4.47916 19.7133L9.95624 14.2362C10.6483 13.5441 11.6842 13.2765 12.6586 13.5423C13.5789 13.7935 14.5332 13.8173 15.4938 13.612C17.8112 13.1179 19.65 11.2121 20.0698 8.86912C20.1963 8.16146 20.1982 7.45104 20.0753 6.75987V6.75346L17.6416 9.09921C16.9733 9.76746 16.0429 10.1405 15.0923 10.0782C14.1427 10.0305 13.2507 9.57862 12.6457 8.83796C11.565 7.51887 11.7098 5.49304 12.9767 4.22712L15.0364 2.19487C15.2005 2.02987 15.2115 1.90704 15.2051 1.88229C14.9163 1.84654 14.6157 1.82546 14.3104 1.82546L14.3086 1.82729Z" fill="currentColor"/></svg></a>
+    <a href="https://www.dbservice.cz/price" aria-label="Ceník"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M7.06629 8.48537C7.4247 8.84379 7.4247 9.42404 7.06629 9.78154C6.70787 10.14 6.12762 10.14 5.77012 9.78154C5.4117 9.42312 5.4117 8.84287 5.77012 8.48537C6.12854 8.12695 6.70879 8.12695 7.06629 8.48537ZM19.764 14.0633L19.246 14.5812C19.2213 15.7115 18.7831 16.8335 17.9306 17.697L15.0275 20.6376C14.1631 21.513 13.01 21.997 11.7798 22.0007H11.7642C10.5405 22.0007 9.39004 21.524 8.5247 20.6587L1.7267 13.9185C1.13087 13.3235 0.843037 12.505 0.934703 11.6699L1.63595 5.3302C1.6827 4.9122 2.00629 4.57945 2.42245 4.52262L8.73737 3.65912C9.5917 3.54545 10.4515 3.83604 11.0547 4.4392L17.9068 11.2335C18.2615 11.5883 18.5457 11.988 18.7602 12.4142C19.5045 11.3454 19.4 9.85212 18.4467 8.89879L11.4883 2.11087C11.2784 1.90095 10.9887 1.80379 10.7082 1.8432L4.39329 2.7067C3.89004 2.77454 3.42895 2.42345 3.3602 1.92295C3.29237 1.42154 3.64345 0.959536 4.14395 0.890786L10.4598 0.0263694C11.304 -0.0937139 12.173 0.201453 12.7771 0.807369L19.7337 7.59529C21.5175 9.3782 21.5276 12.2767 19.763 14.0642L19.764 14.0633ZM16.6125 12.5325L9.76037 5.73812C9.55595 5.5337 9.26904 5.43929 8.98395 5.47504L3.37854 6.24229L2.75612 11.8706C2.72587 12.1484 2.8212 12.4215 3.0192 12.6186L9.8172 19.3589C10.3388 19.8814 11.029 20.1665 11.7633 20.1665H11.7725C12.5113 20.1646 13.2034 19.874 13.7213 19.3479L16.6244 16.4072C17.6831 15.3347 17.6776 13.5958 16.6115 12.5306L16.6125 12.5325Z" fill="currentColor"/></svg></a>
+    <a href="https://www.dbservice.cz/special-offers" aria-label="Akce"><svg width="18" height="24" viewBox="0 0 39 51" fill="none"><path d="M38.141 29.8599C37.5568 22.2536 34.0155 17.4873 30.8913 13.2812C27.9986 9.38727 25.5 6.02467 25.5 1.06432C25.5 0.665881 25.2769 0.30171 24.9231 0.119126C24.5682 -0.0645532 24.1417 -0.0344711 23.8191 0.200009C19.1271 3.55744 15.2122 9.21615 13.8447 14.6154C12.8953 18.3743 12.7697 22.6002 12.7521 25.3912C8.41908 24.4656 7.43754 17.9843 7.42717 17.9136C7.37836 17.5775 7.17298 17.2849 6.87414 17.1251C6.57222 16.9674 6.21732 16.956 5.91122 17.1075C5.68401 17.2175 0.33409 19.9358 0.0228102 30.7893C0.000995723 31.1504 0 31.5127 0 31.8748C0 42.419 8.57986 50.9983 19.125 50.9983C19.1395 50.9994 19.1551 51.0015 19.1675 50.9983C19.1675 50.9983 19.1758 50.9983 19.181 50.9983C29.7003 50.9681 38.25 42.4003 38.25 31.8748C38.25 31.3444 38.141 29.8599 38.141 29.8599ZM19.125 48.8735C15.6096 48.8735 12.75 45.8273 12.75 42.0829C12.75 41.9554 12.749 41.8266 12.7583 41.6689C12.8008 40.0898 13.1007 39.0118 13.4296 38.2948C14.046 39.6189 15.1479 40.8359 16.9378 40.8359C17.5251 40.8359 18.0003 40.3605 18.0003 39.7734C18.0003 38.2608 18.0315 36.5156 18.4081 34.9405C18.7433 33.544 19.5443 32.0582 20.5591 30.8673C21.0104 32.4133 21.8903 33.6645 22.7494 34.8855C23.9791 36.6327 25.2501 38.4391 25.4732 41.5195C25.4866 41.7021 25.5002 41.8859 25.5002 42.0829C25.5 45.8273 22.6404 48.8735 19.125 48.8735Z" fill="currentColor"/></svg></a>
+    <button class="nav_button mob" id="navToggleMob" type="button" aria-label="Menu" aria-expanded="false">
+      <img class="icon-open" src="https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/680723ec291bb71c726b6d81_SVG.svg" alt="">
+      <img class="icon-close" src="https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/68df17b1db6e49be6b1f2ae8_Vector.png" alt="">
+    </button>
+  </div>
+</section>
+
+<!-- ================= КОНТЕНТ ================= -->
+<main class="section-4">
+  <div class="section-wrapper">
+
+    <!-- СЕКЦИЯ 1 -->
+    <div class="hero-block">
+      <div class="header-content">
+        <h1 class="h1">Spolehlivý servis pro všechny značky vozů</h1>
+        <h2 class="hero-sub">Technické centrum &amp; Detailing</h2>
+        <p class="paragraph-large">DBS je místo, kde získáte kompletní péči o svůj automobil. Nabízíme odborný servis všech značek, precizní detailing a pokročilé služby našeho technického centra. Všechny ceny na webu jsou uvedeny včetně DPH.</p>
+        <div class="hero-cta">
+          <a class="button-secondary" href="https://booking.dbservice.cz/" target="_blank" rel="noopener" aria-label="rezervace">On-line rezervace</a>
+          <a class="btn-route" href="https://www.google.com/maps/dir/?api=1&amp;destination=DBS%20Autoservis%2C%20Franti%C5%A1ka%20Kadlece%202441%2C%20180%2000%20Praha%208" target="_blank" rel="noopener" aria-label="Naplánovat trasu do DBS, Františka Kadlece 2441, Praha 8">
+            <span class="btn-route__dot"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.6 3.4 3.8 10.2c-.8.33-.75 1.48.08 1.73l6.62 1.94 1.94 6.62c.25.83 1.4.88 1.73.08z"/></svg></span>
+            <span>Naplánovat trasu</span>
+          </a>
+        </div>
+      </div>
+      <div class="promo">
+        <div>
+          <h3 class="promo__title">Využijte naše aktuální akce a slevy</h3>
+          <div class="promo__text">Např. kompletní výměna brzdových destiček a kotoučů ZDARMA</div>
+        </div>
+        <a class="button-secondary" href="https://www.dbservice.cz/special-offers">Akce</a>
+      </div>
+    </div>
+
+    <!-- СЕКЦИЯ 2 -->
+    <div class="conteiner-pading">
+      <section class="services" id="services">
+        <h2 class="heading-4">Co umíme?</h2>
+        <div class="text-weight-regular">Poskytujeme komplexní servisní a detailingové služby pro všechny typy vozů</div>
+        <div class="tabs">
+          <div class="tabs-menu" role="tablist">
+            <button class="tab-link is-current" type="button" role="tab" aria-selected="true" aria-controls="pane-tech" data-tab="tech">Technické centrum</button>
+            <button class="tab-link" type="button" role="tab" aria-selected="false" aria-controls="pane-detailing" data-tab="detailing">Detailing</button>
+          </div>
+          <div class="tabs-content">
+            <div class="tab-pane is-active is-shown" id="pane-tech" role="tabpanel">
+              <div class="tab-content-inner">
+                <div class="features"><div class="feature-head"><h3 class="h5">Pravidelná údržba</h3><div class="divider"></div></div><div class="grid-cards" data-services="maintenance"></div></div>
+                <div class="features"><div class="feature-head"><h3 class="h5">Zjištění závad a opravy</h3><div class="divider"></div></div><div class="grid-cards" data-services="repairs"></div></div>
+                <div class="features"><div class="feature-head"><h3 class="h5">Techcentrum</h3><div class="divider"></div></div><div class="grid-cards" data-services="techcentrum"></div></div>
+              </div>
+            </div>
+            <div class="tab-pane" id="pane-detailing" role="tabpanel">
+              <section class="det">
+                <div class="det__head"><div class="det__dbs">DBS</div><h3 class="det__title">Detailing</h3></div>
+                <div class="det__grid" data-services="detailing"></div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </div>
+</main>
+
+<!-- ================= Плавающие контакты ================= -->
+<div class="contacts">
+  <div class="contacts__icons">
+    <a href="tel:+420210012799" rel="nofollow" aria-label="phone"><img src="https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/69662956a0df38a1aad8b652_phone.svg" alt=""></a>
+    <a href="https://wa.me/420720773201" target="_blank" rel="nofollow noopener" aria-label="WhatsApp"><img src="https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/69662a14dd6485d365bd3dce_wa-icon.svg" alt=""></a>
+    <a href="https://t.me/DBS_PRG" target="_blank" rel="nofollow noopener" aria-label="Telegram"><img src="https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/69662e023e3f29a1aa2942bd_teleg.svg" alt=""></a>
+  </div>
+  <a class="contacts__phone" href="tel:+420210012799"><span>+420-210-012-799</span></a>
+</div>
+
+<!-- =========================================================
+     DBS SWIPE ASSISTANT
+     ========================================================= -->
+<button class="dbs-launcher is-hidden" id="dbsLauncher" type="button">
+  <span class="dbs-launcher__ghost" aria-hidden="true"></span>
+  <span class="dbs-launcher__card">
+    <span class="dbs-launcher__dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3.6" y="4.2" width="10.4" height="14.6" rx="2.6" transform="rotate(-13 8.8 11.5)" opacity=".32"/><rect x="9" y="4.6" width="10.4" height="14.6" rx="2.6" transform="rotate(9 14.2 11.9)"/></svg></span>
+    <span class="dbs-launcher__txt"><b><span class="long" id="dbsLauncherText"></span><span class="short" id="dbsLauncherShort"></span></b><small id="dbsLauncherSub"></small></span>
+  </span>
+</button>
+
+<div class="dbs-asst" id="dbsAsst" aria-hidden="true">
+  <div class="dbs-asst__backdrop" data-close></div>
+  <div class="dbs-asst__panel" role="dialog" aria-modal="true" aria-labelledby="dbsTitle" tabindex="-1">
+    <header class="dbs-asst__head">
+      <img class="dbs-asst__logo" src="https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/68056f6d9d9f83e31f094aec_Group%20859.svg" alt="DBS">
+      <div class="dbs-asst__tools">
+        <button class="hbtn" id="dbsBack" type="button" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4.5 7.5 12l7.5 7.5"/></svg></button>
+        <button class="hbtn" id="dbsRestart" type="button" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4.6 12.4a7.6 7.6 0 1 0 2.3-6"/><path d="M5.4 3.2v4.2h4.2"/></svg></button>
+        <button class="hbtn" id="dbsClose" type="button" data-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M5.5 5.5l13 13M18.5 5.5l-13 13"/></svg></button>
+      </div>
+    </header>
+    <div class="dbs-progress" id="dbsProgress" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="dbs-stage" id="dbsStage"><div class="dbs-ghost" aria-hidden="true"></div></div>
+    <p class="dbs-hint" id="dbsHint" aria-live="polite"></p>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   Страница: услуги, табы, видео, меню
+   ========================================================= */
+(function(){
+  const CDN='https://cdn.prod.website-files.com/6803aea8ac07af0303bb73da/';
+  const S={
+    maintenance:[
+      ['Výměna oleje','od 599 Kč','vymena-oleje','6803aea8ac07af0303bb7508_oill-icon.webp'],
+      ['Výměna oleje v převodovce','od 1 499 Kč','vymena-oleje-v-prevodovce','68ea3502a8a1ab8634844edc_oleje.svg'],
+      ['Servis brzd','od 799 Kč','servis-brzd','68ea35009428749e7324c88f_brzd.svg'],
+      ['Výměna rozvodů','od 4 999 Kč','vymena-rozvodu','68ea34fd5f3a1b08347f4b24_Vy%CC%81me%CC%8Cna%20rozvodu%CC%8A.svg'],
+      ['Výměna spojky','od 4 999 Kč','vymena-spojky','68ea34fdcf9662176572a006_Vy%CC%81me%CC%8Cna%20spojky.svg'],
+      ['Podvozek a geometrie','od 2 299 Kč','podvozek','68ea34fd530c133f73bd422d_Podvozek.svg'],
+      ['Servis Klimatizace','od 999 Kč','servis-klimatizace','68ea350003f05ee922799481_Servis%20Klimatizace.svg']
+    ],
+    repairs:[
+      ['Diagnostika','od 999 Kč','diagnostika','68ea350032ea05a4ca333194_Diagnostika.svg',1],
+      ['Mechanické opravy','od 899 Kč','mechanicke-opravy-vozu','68ea35000129319e670154ed_Mechanicke%CC%81%20opravy.svg'],
+      ['Generální opravy motorů','Na dotaz','generalni-opravy-motoru','68ea34fda1787015e513adf6_opravy%20motoru%CC%8A.svg']
+    ],
+    techcentrum:[
+      ['Karosářské práce','od 1 299 Kč','karosarske-prace','68ea3500bdf5f9286043df34_Karosa%CC%81r%CC%8Cske%CC%81%20pra%CC%81ce.svg'],
+      ['Prohlídky a kontroly','od 1 799 Kč','prohlidky-a-kontroly','68ea35002715f40a7bc25c2a_Prohli%CC%81dky%20a%20kontroly.svg'],
+      ['Pneuservis','od 349 Kč','pneuservis','68ea34fd079b8a74057e4d64_Pneuservis.svg']
+    ],
+    detailing:[
+      ['Exteriér','od 999 Kč','exterier','68ea3500a83c90fe8bbe0383_Exterie%CC%81r.svg',1],
+      ['Kompletní detailing vozu','od 1 599 Kč','interier','68ea35009128c7a428d3ecb0_Interie%CC%81r.svg',1],
+      ['Detailingové služby','od 1 899 Kč','samostatne-sluzby','68ea34fd40696984c0be0cd2_Samostatne%CC%81%20sluz%CC%8Cby.svg',1],
+      ['Mechanický tuning','Na dotaz','mechanicky-tuning','68ea35022a52ad61fe4f2eaf_Mechanicky%CC%81%20tuning.svg',1,1],
+      ['Vizuální tuning','Na dotaz','vizualni-tuning','68ea34fd270c128f8f3abddc_Vizua%CC%81lni%CC%81%20tuning.svg',1,1],
+      ['Audiotechnika','Na dotaz','audiotechnika','68ea34fd0a91789d3988aefc_Audiotechnika.svg',1,1]
+    ]
+  };
+  const arrow=CDN+'6803aea8ac07af0303bb7509_next%20(1)%204.webp';
+  document.querySelectorAll('[data-services]').forEach(g=>{
+    g.innerHTML=S[g.dataset.services].map(([t,p,slug,ic,alt,red])=>`
+      <a class="svc${red?' svc--red':''}" href="https://www.dbservice.cz/individual-service-page/${slug}">
+        <div class="svc__head"><img class="svc__icon" src="${CDN+ic}" alt="" loading="lazy"><h3 class="svc__title${alt?' svc__title--alt':''}">${t}</h3></div>
+        <div class="svc__price"><p>${p.replace(/ /g,'&nbsp;')}</p><img src="${arrow}" alt="" loading="lazy"></div>
+      </a>`).join('');
+  });
+
+  // табы: как в Webflow — 100ms out / 300ms in
+  window.dbsSetTab=function(key){
+    document.querySelectorAll('.tab-link').forEach(t=>{const on=t.dataset.tab===key;t.classList.toggle('is-current',on);t.setAttribute('aria-selected',on)});
+    const next=document.getElementById('pane-'+key), cur=document.querySelector('.tab-pane.is-active');
+    if(cur===next) return;
+    if(cur){cur.classList.remove('is-shown'); setTimeout(()=>cur.classList.remove('is-active'),100);}
+    setTimeout(()=>{next.classList.add('is-active'); requestAnimationFrame(()=>requestAnimationFrame(()=>next.classList.add('is-shown')));},cur?100:0);
+  };
+  document.querySelectorAll('.tab-link').forEach(t=>t.addEventListener('click',()=>dbsSetTab(t.dataset.tab)));
+
+  // хиро-видео: один проход, fallback-картинка если не успело
+  const hv=document.getElementById('hero-video'), hf=document.querySelector('.hero-fallback');
+  let hvReady=false;
+  const showHv=()=>{if(hvReady)return;hvReady=true;hv.classList.add('is-ready');hv.play().catch(()=>hf.classList.add('is-visible'))};
+  hv.addEventListener('loadeddata',showHv); hv.addEventListener('canplay',showHv);
+  hv.addEventListener('error',()=>hf.classList.add('is-visible'));
+  setTimeout(()=>{if(!hvReady)hf.classList.add('is-visible')},2000);
+
+  // меню: desktop сворачивает колонку, планшет — выпадашка, мобила — нижний лист
+  const menu=document.getElementById('menu');
+  const tDesk=document.getElementById('navToggle'), tTab=document.getElementById('navToggleTablet'), tMob=document.getElementById('navToggleMob');
+  tDesk.addEventListener('click',()=>{const c=menu.classList.toggle('is-collapsed');tDesk.setAttribute('aria-expanded',!c)});
+  const setOpen=o=>{menu.classList.toggle('is-open',o);tTab.setAttribute('aria-expanded',o);tMob.setAttribute('aria-expanded',o);tMob.classList.toggle('is-open',o);document.body.classList.toggle('menu-open',o)};
+  tTab.addEventListener('click',()=>setOpen(!menu.classList.contains('is-open')));
+  tMob.addEventListener('click',()=>setOpen(!menu.classList.contains('is-open')));
+  document.addEventListener('click',e=>{if(menu.classList.contains('is-open')&&!menu.contains(e.target)&&!tTab.contains(e.target)&&!tMob.contains(e.target))setOpen(false)});
+  matchMedia('(min-width:992px)').addEventListener('change',e=>{if(e.matches)setOpen(false)});
+})();
+</script>
+
+<script>
+/* =========================================================
+   DBS SWIPE ASSISTANT
+   Дерево по ТЗ «DBS_Interactive_Booking_Flow»:
+   1 Приветствие  ← Autoservis | Detailing →
+   2 Готовность   ← Узнать цену (→3) | Записаться (→ пожелания → календарь → контакт)
+   3 Возражение   ← Прайс-лист (→4) | VIN и запрос (→ пожелания+VIN → WhatsApp, без календаря)
+   4 Мягкий выход → прайс-лист / PDF
+   ========================================================= */
+(function(){
+  const CONFIG = {
+    autoOpenDelay: 3500,
+    snoozeDays: 3,
+    bookingUrl: 'https://booking.dbservice.cz/',
+    priceUrl:   'https://www.dbservice.cz/price',
+    pricePdfUrl: null,
+    whatsapp:   '420720773201',
+    phone:      '+420210012799',
+    telegram:   'DBS_PRG',
+    submitEndpoint: null,
+    syncPageTabs: true
+  };
+
+  const I18N = {
+    cs:{
+      who:'Asistent DBS', launcher:'Rychlý průvodce', launcherShort:'Průvodce', launcherSub:'Služba · cena · termín', launcherAria:'Otevřít průvodce DBS',
+      hintSwipe:'Potáhněte kartu doleva nebo doprava nebo klepněte na tlačítko.',
+      hintForm:'Vyplňte a potáhněte kartu doprava nebo klepněte na tlačítko.',
+      back:'Zpět', next:'Pokračovat', send:'Odeslat', close:'Zavřít', restart:'Začít znovu',
+      welcome:{title:'Dobrý den!<br><em>Vítejte v DBS.</em>', text:'Co je teď pro váš vůz aktuálnější?', l:'Autoservis', r:'Detailing', la:'Autoservis: opravy, servis, diagnostika', ra:'Detailing: péče, fólie, estetika'},
+      readiness:{title:'Skvělá <em>volba.</em>', text:'Chcete si rovnou rezervovat termín, nebo se nejdřív zorientovat v cenách?', l:'Zjistit cenu', r:'Rezervovat'},
+      objection:{title:'Rozumíme!<br><em>Spočítáme to.</em>', text:'Pošlete VIN a co je potřeba udělat — odpovíme <b>ještě dnes</b> na WhatsApp.', l:'Stačí ceník', r:'Poslat VIN'},
+      exit:{chip:'Ceník', title:'Žádný <em>problém.</em>', text:'Základní ceny najdete v ceníku. Kdyby vás cokoli napadlo — jsme vždy na příjmu!', open:'Otevřít ceník', pdf:'PDF'},
+      wish:{eyebrow:'Krok 1', title:'Popište vaše <em>přání</em>', text:'Popište problém nebo nám řekněte, co je potřeba udělat.',
+        ph:'Např. klepání vpředu vpravo při přejezdu nerovností, výměna oleje…',
+        phVin:'Např. výměna rozvodů a vodní pumpy, cena s originálními díly…',
+        vin:'VIN kód', vinPh:'17 znaků', vinHint:'VIN najdete v malém technickém průkazu (kolonka E) nebo pod čelním sklem.',
+        errText:'Napište nám prosím pár slov.', errVin:'VIN má 17 znaků (bez I, O, Q).'},
+      date:{eyebrow:'Krok 2', title:'Vyberte <em>termín</em>', text:'Termín vám potvrdíme telefonicky nebo SMS.', day:'Den', time:'Čas', err:'Vyberte den a čas.'},
+      contact:{eyebrow:'Poslední krok', titleBook:'Kam pošleme <em>potvrzení?</em>', titleVin:'Kam napíšeme na <em>WhatsApp?</em>',
+        name:'Jméno', namePh:'Jan Novák', phone:'Telefon', phoneWa:'Číslo s WhatsApp', phonePh:'+420 123 456 789',
+        err:'Zadejte platné telefonní číslo.', consent:'Odesláním souhlasíte se zpracováním údajů za účelem vyřízení vašeho požadavku.',
+        sService:'Služba', sDate:'Termín', sVin:'VIN'},
+      doneBook:{chip:'Odesláno', title:'Hotovo, <em>děkujeme!</em>', text:'Termín <b>{when}</b> máme předběžně zapsaný. Brzy se vám ozveme a potvrdíme ho.', cta:'Pokračovat na web'},
+      doneVin:{chip:'Odesláno', title:'Díky, <em>máme to!</em>', text:'Kalkulaci vám pošleme <b>ještě dnes</b> na WhatsApp. Chcete napsat hned?', cta:'Pokračovat na WhatsApp'},
+      svc:{autoservis:'Autoservis', detailing:'Detailing'},
+      days:['Ne','Po','Út','St','Čt','Pá','So'],
+      call:'Zavolat'
+    },
+    ru:{
+      who:'Ассистент DBS', launcher:'Быстрый подбор', launcherShort:'Подбор', launcherSub:'Услуга · цена · время', launcherAria:'Открыть ассистента DBS',
+      hintSwipe:'Смахните карточку влево или вправо или нажмите на кнопку.',
+      hintForm:'Заполните и смахните карточку вправо или нажмите на кнопку.',
+      back:'Назад', next:'Далее', send:'Отправить', close:'Закрыть', restart:'Сначала',
+      welcome:{title:'Добрый день!<br><em>Это DBS.</em>', text:'Что сейчас актуальнее для вашего автомобиля?', l:'Автосервис', r:'Детейлинг', la:'Автосервис: ремонт, ТО, диагностика', ra:'Детейлинг: уход, плёнки, эстетика'},
+      readiness:{title:'Отличный <em>выбор.</em>', text:'Хотите сразу забронировать время или сначала сориентироваться по ценам?', l:'Узнать цену', r:'Записаться'},
+      objection:{title:'Понимаем!<br><em>Посчитаем.</em>', text:'Пришлите VIN и что нужно сделать — ответим в WhatsApp <b>сегодня же</b>.', l:'Прайс-лист', r:'Отправить VIN'},
+      exit:{chip:'Прайс', title:'Без <em>проблем.</em>', text:'Базовые цены — в прайс-листе. Если появятся вопросы — мы всегда на связи!', open:'Открыть прайс', pdf:'PDF'},
+      wish:{eyebrow:'Шаг 1', title:'Опишите ваши <em>пожелания</em>', text:'Опишите проблему или расскажите, что нужно сделать.',
+        ph:'Напр.: стук спереди справа на неровностях, замена масла…',
+        phVin:'Напр.: замена ГРМ и помпы, цена с оригинальными запчастями…',
+        vin:'VIN-код', vinPh:'17 символов', vinHint:'VIN указан в техпаспорте (графа E) или под лобовым стеклом.',
+        errText:'Напишите, пожалуйста, пару слов.', errVin:'VIN состоит из 17 символов (без I, O, Q).'},
+      date:{eyebrow:'Шаг 2', title:'Выберите <em>время</em>', text:'Мы подтвердим запись звонком или SMS.', day:'День', time:'Время', err:'Выберите день и время.'},
+      contact:{eyebrow:'Последний шаг', titleBook:'Куда прислать <em>подтверждение?</em>', titleVin:'Куда написать в <em>WhatsApp?</em>',
+        name:'Имя', namePh:'Иван', phone:'Телефон', phoneWa:'Номер с WhatsApp', phonePh:'+420 123 456 789',
+        err:'Введите корректный номер телефона.', consent:'Отправляя форму, вы соглашаетесь на обработку данных для обработки вашего запроса.',
+        sService:'Услуга', sDate:'Время', sVin:'VIN'},
+      doneBook:{chip:'Отправлено', title:'Готово, <em>спасибо!</em>', text:'Мы предварительно записали вас на <b>{when}</b>. Скоро свяжемся и подтвердим.', cta:'Перейти на сайт'},
+      doneVin:{chip:'Отправлено', title:'Спасибо, <em>приняли!</em>', text:'Расчёт пришлём <b>сегодня же</b> в WhatsApp. Хотите написать прямо сейчас?', cta:'Перейти в WhatsApp'},
+      svc:{autoservis:'Автосервис', detailing:'Детейлинг'},
+      days:['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+      call:'Позвонить'
+    }
+  };
+  const qLang=new URLSearchParams(location.search).get('lang');
+  const lang=(qLang||document.documentElement.lang||'cs').slice(0,2);
+  const T=I18N[lang]||I18N.cs;
+
+  /* иконки из Assets/Icons (макет) + служебные стрелки */
+  const IC={
+    svc:'<svg viewBox="0 0 52.06 40" fill="currentColor" aria-hidden="true"><rect x=".34" y="22.12" width="51.35" height="1.89" rx=".94" ry=".94"/> <path d="M34.44,40h-16.9c-.49,0-.89-.39-.9-.88h0c0-.38.22-.72.57-.86l5.04-2.02c.11-.04.22-.06.34-.06h6.88c.11,0,.23.02.33.07l4.98,1.99c.34.14.57.47.57.83v.02c0,.5-.4.91-.9.91Z"/> <rect x="22.84" y="28.11" width="6.34" height="6.99" rx=".9" ry=".9"/> <path d="M27.26,27.03h-2.51c-.4,0-.76-.27-.87-.66l-.03-.12c-.16-.58.27-1.15.87-1.15h2.58c.6,0,1.03.57.87,1.15l-.03.12c-.11.39-.47.66-.87.66Z"/> <g> <path d="M35.33,16.81h-19.19c.74-2.36.11-4.76-1.49-6.5-2.71-2.95-7.29-2.9-9.95.1-1.57,1.76-2.11,4.13-1.39,6.4C1.29,16.76.02,15.22,0,13.36s.49-3.7,1.81-5.12c.34-.34.75-.72,1.24-.88,3.39-1.07,6.8-1.73,10.34-2.15.24-.03.61-.23.81-.37,2.31-1.64,4.74-2.9,7.35-3.99.97-.41,1.91-.69,2.98-.76,1.61-.11,3.14-.11,4.78.04,3.83.34,7.57.86,11.28,1.84,1.99.53,5.24,2.67,8.16,3.15.95.16,1.57.57,2.01,1.44,1.22,2.42,1.65,5.12,1.03,7.78-.34,1.46-2.01,1.82-3.53,2.25.58-2.34-.03-4.58-1.58-6.28-2.67-2.9-7.17-2.9-9.85,0-1.62,1.75-2.23,4.15-1.49,6.51ZM17.69,5.96l9.5-.33v-3.38c-1.31.01-2.46.06-3.73.19-2.31.93-4.5,1.91-6.65,3.28l.88.24ZM38.72,5.19l.63-1.3c-3.35-.78-6.55-1.38-9.98-1.52v3.15s9.35-.33,9.35-.33Z"/> <circle cx="9.83" cy="14.86" r="4.55"/> <circle cx="41.96" cy="14.86" r="4.55"/> </g></svg>',
+    det:'<svg viewBox="0 0 52.22 40" fill="currentColor" aria-hidden="true"><path d="M49.86,5.73c.32-.52.49-1.1.86-1.47s.99-.61,1.51-.9c-.44-.29-1.09-.51-1.5-.9-.38-.36-.54-.95-.87-1.48l-.86,1.55-1.51.82,1.52.83.86,1.54Z"/> <path d="M2.69,2.21c.91.3,1.38.78,1.7,1.72.29-.89.75-1.45,1.73-1.72-.87-.32-1.45-.77-1.7-1.71l-.66,1.1-1.07.62Z"/> <path d="M38.46,2.3c.23.15.45.73.65,1.05.3-.83.71-1.3,1.7-1.66C39.84,1.37,39.45.87,39.09,0c-.36.91-.79,1.38-1.68,1.63l1.05.67Z"/> <path d="M42.51,20.86c-.38-1.08-1.3-1.65-2.33-1.51s-1.77,1.06-1.73,2.18c-.66-.13-1.28-.06-1.79.34-.44.34-.81.94-.81,1.57v4.82s-.82-.75-.82-.75c-.44-.41-1.14-.43-1.68-.22-1.12.44-1.36,1.86-.93,3.08l.97,2.8c.17.49-.07,1.03-.56,1.23h0c-.48.19-1.03-.03-1.25-.5-.82-1.78-1.31-3.68-1.53-5.66.14-1.69.45-3.25.86-4.89.62-2.45.81-4.87.53-7.37-.04-.39.16-.77.5-.96,1.76-.95,3.64-1.52,5.62-1.63,1.78-.1,3.47.28,5.19.74,2.42.66,4.81.94,7.34.56.53-.08,1.03.28,1.11.81.26,1.69.39,3.4.03,5.09l-.81,3.76c-.63,2.53-.61,5.07.02,7.58.15.45.31.86.49,1.28.26.59-.1,1.27-.74,1.36-.46.07-.92.12-1.38.16-.57.04-1.06-.4-1.06-.97v-7.51c0-.67-.33-1.28-.78-1.63-.51-.41-1.15-.53-1.81-.37l-.05-1.57c-.04-1.29-1.29-2.21-2.61-1.83Z"/> <path d="M41.41,40c-2.4-.04-4.51-1.35-5.29-3.58l-2.35-6.65c-.13-.36-.09-.8.13-1.15.87.25,1.63,2.24,1.97,3.39.11.36.41.61.74.6.43,0,.73-.33.73-.79v-8.35c0-.23.33-.51.51-.53.23-.02.61.25.62.53v6.26c0,.42.35.75.72.75.41,0,.76-.31.76-.79v-8.37c0-.28.36-.53.6-.52.2,0,.52.27.52.54v8.37c0,.42.36.75.71.75.42,0,.77-.31.77-.78v-6.89c0-.3.31-.56.59-.56.21,0,.54.3.54.57v6.92c0,.42.35.73.7.75.41.03.78-.3.78-.76v-3.47c0-.3.29-.58.57-.58.26,0,.56.28.56.6l-.02,9.12c0,2.64-2.18,4.66-4.85,4.62Z"/> <g> <path d="M31.05,13.38c1.72-.94,3.54-1.53,5.41-1.76.26-.47.58-.91.95-1.31,2.71-2.95,7.29-2.9,9.95.1.67.76,1.16,1.63,1.43,2.55.34-.02.68-.06,1.02-.11.14-.02.28-.03.42-.03.69,0,1.33.24,1.82.66,0-.04,0-.08,0-.11.02-1.92-.49-3.7-1.81-5.12-.34-.34-.75-.72-1.24-.88-3.39-1.07-6.8-1.73-10.34-2.15-.24-.03-.61-.23-.81-.37-2.31-1.64-4.74-2.9-7.35-3.99-.97-.41-1.91-.69-2.98-.76-1.61-.11-3.14-.11-4.78.04-3.83.34-7.57.86-11.28,1.84-1.99.53-5.24,2.67-8.16,3.15-.95.16-1.57.57-2.01,1.44C.09,8.96-.34,11.66.28,14.33c.34,1.46,2.01,1.82,3.53,2.25-.58-2.34.03-4.58,1.58-6.28,2.67-2.9,7.17-2.9,9.85,0,1.62,1.75,2.23,4.15,1.49,6.51h12.91c-.02-.21-.03-.42-.06-.63-.13-1.15.45-2.25,1.46-2.8ZM13.34,5.19l-.63-1.3c3.35-.78,6.55-1.38,9.98-1.52v3.15s-9.35-.33-9.35-.33ZM24.87,2.25c1.3.01,2.46.06,3.73.19,2.31.93,4.5,1.91,6.65,3.28l-.88.24-9.5-.33v-3.38Z"/> <path d="M42.23,10.31c-1.21,0-2.31.47-3.12,1.24,1.45.11,2.84.43,4.13.78,1.1.3,2.13.49,3.11.59-.73-1.54-2.3-2.61-4.12-2.61Z"/> <circle cx="10.1" cy="14.86" r="4.55"/> </g></svg>',
+    price:'<svg viewBox="0 0 48.73 40" fill="currentColor" aria-hidden="true"><path d="M48.73,13.25v1.05c-.22,1.3-1.07,2.3-2.26,2.86-2.49,1.17-5.95.69-8.68-.06-.34.73-.72,1.33-1.29,1.91l-17.98,17.97c-1.5,1.5-3.85,1.58-5.37.06L1.08,24.94c-1.41-1.41-1.45-3.74-.03-5.16L19.19,1.6C20.26.52,21.62-.02,23.15,0l10.74.17c2.26.03,4.03,1.8,4.07,4.06,3.59,1.32,7.32,3.27,9.63,6.37.57.84.98,1.7,1.14,2.66ZM43.77,11.07c-1.68-1.47-3.58-2.53-5.73-3.43l.05,4.34c-2.04-.71-3.93-1.6-5.7-2.85.2-1.59-.77-3.02-2.24-3.42s-2.99.31-3.63,1.7-.16,3.03,1.12,3.86,2.95.64,4.02-.54c2.6,1.82,5.51,3.1,8.64,3.71,1.58.31,3.96.5,5.16-.35.62-.44-.71-2.18-1.68-3.04ZM11.71,27.24c.13.13.52.11.63,0l.88-.88c.18-.18.53-.2.78-.07,1.12.63,2.45.77,3.64.22,1.62-.75,2.45-2.5,2.1-4.26-.39-1.91-2.04-4.14-.78-4.86,1.14-.66,2.58,1.2,3.13,2.72.07.2.34.36.54.25l1.49-.81c.6-.33-.28-1.68-.86-2.51-.12-.17-.1-.45.03-.59l.73-.76c.11-.12.11-.48,0-.59l-.94-.94c-.09-.09-.41-.12-.52-.02l-1.11,1.04c-.25-.05-.59-.15-.8-.25-1.29-.61-2.67-.54-3.8.28-2.04,1.48-1.55,3.61-.62,5.74.46,1.05.93,2.18.13,2.86-.64.54-1.68.14-2.31-.57-.67-.75-1.12-1.6-1.44-2.57-.06-.18-.34-.32-.5-.23l-1.49.83c-.67.37.24,1.86.86,2.74.1.14.29.47.27.66l-.88.94c-.19.2-.24.55-.04.74l.92.91Z"/> <path d="M38.04,39.98l-16.98.02-1.02-.11.68-.63,18.55-18.55,2.47.31v15.25c-.07,2.01-1.58,3.71-3.69,3.71Z"/></svg>',
+    cal:'<svg viewBox="0 0 38.1 40" fill="currentColor" aria-hidden="true"><path d="M33.32,3.9l.02-1.05h.98c2.05.03,3.76,1.67,3.76,3.75v5.77s-38.08,0-38.08,0v-5.68C0,4.57,1.66,2.89,3.77,2.86h.99s0,.9,0,.9c-.02,2.12,1.66,3.81,3.71,3.86s3.88-1.62,3.9-3.77v-.99s13.34,0,13.34,0v.99c.03,2.09,1.7,3.73,3.74,3.77s3.83-1.56,3.87-3.71Z"/> <path d="M10.48,3.72c0,1.15-.85,2-1.92,1.99s-1.9-.86-1.9-1.96v-1.79c0-1.1.84-1.95,1.9-1.96s1.92.85,1.92,1.96v1.76Z"/> <path d="M31.44,3.71c0,1.15-.84,1.99-1.9,2s-1.92-.85-1.92-1.96v-1.8c0-1.11.85-1.97,1.92-1.96s1.9.86,1.9,1.96v1.75Z"/> <path d="M34.27,40H3.79C1.66,39.97,0,38.28,0,36.15V14.29s38.09,0,38.09,0v21.86c0,2.13-1.64,3.84-3.83,3.85ZM9.5,24.76c1.02,0,1.91-.78,1.92-1.84v-1.94c.02-1.08-.84-1.94-1.92-1.94h-1.96c-1.05.02-1.82.92-1.83,1.93v1.79c-.01,1.16.84,2.01,1.99,2h1.79ZM20.08,24.75c1.11,0,1.83-.96,1.83-1.97v-1.8c-.01-1.12-.87-1.94-1.97-1.94h-1.79c-1.09,0-1.97.82-1.96,1.94v1.97c.02.99.89,1.8,1.87,1.8h2.03ZM30.44,24.76c1.16,0,1.95-.9,1.95-1.99v-1.8c-.01-1.01-.78-1.91-1.83-1.91h-1.96c-1.08-.02-1.94.84-1.94,1.92v1.96c.02,1.05.91,1.83,1.93,1.83h1.85ZM9.54,35.23c1.08,0,1.89-.9,1.89-1.93v-1.96c-.02-1.05-.91-1.83-1.93-1.83h-1.89c-1.06,0-1.9.84-1.9,1.9v1.89c0,1.02.78,1.91,1.83,1.92h1.99ZM19.99,35.24c1.11,0,1.91-.87,1.92-1.93v-1.79c.01-1.13-.82-1.99-1.96-1.99h-1.79c-1.01,0-1.94.76-1.94,1.82v1.97c-.02,1.11.86,1.94,1.95,1.94h1.83ZM30.59,35.22c1.05,0,1.79-.93,1.79-1.91v-1.89c0-1.05-.85-1.89-1.9-1.9h-1.89c-1.01,0-1.91.78-1.91,1.82v1.96c-.02,1.08.84,1.94,1.92,1.93l1.99-.02Z"/></svg>',
+    sms:'<svg viewBox="0 0 42.12 40" fill="currentColor" aria-hidden="true"><path d="M0,39.5v-.41s.7-.86.7-.86c1.78-2.5,2.34-6.02,2.64-9.05C1.49,26.58.34,23.6.08,20.42l-.08-.42.03-2.21c.27-3.62,1.64-7.06,3.96-9.92,8.49-10.5,25.67-10.48,34.13,0,4.48,5.55,5.29,12.96,1.91,19.28-1.31,2.44-3.11,4.52-5.31,6.21-6.32,4.86-14.92,5.83-22.28,2.91-3.49,1.95-7.61,3.06-11.48,3.72-.47.08-.79-.07-.98-.48ZM14.03,18.95c0-1.55-1.25-2.8-2.8-2.8s-2.8,1.25-2.8,2.8,1.25,2.8,2.8,2.8,2.8-1.25,2.8-2.8ZM23.86,18.95c0-1.55-1.25-2.8-2.8-2.8s-2.8,1.25-2.8,2.8,1.25,2.8,2.8,2.8,2.8-1.25,2.8-2.8ZM33.69,18.95c0-1.55-1.25-2.8-2.8-2.8s-2.8,1.25-2.8,2.8,1.25,2.8,2.8,2.8,2.8-1.25,2.8-2.8Z"/></svg>',
+    wa:'<svg viewBox="0 0 42 40" fill="currentColor" aria-hidden="true"><path d="M22.22,0l3.99.62c7.63,1.87,13.67,7.83,15.31,15.18l.47,3.03c-.03.78.05,1.57,0,2.34-.84,13.93-16.31,22.84-29.72,17.02-.99-.43-1.92-1-2.87-1.47l-8.01,2.42,2.59-7.38C-.74,25.46-1.33,17.14,2.6,10.34,6.02,4.42,12.66.39,19.76,0h2.46,0ZM12.68,9.16c-2.65.29-3.98,3.55-3.92,5.8.1,4.06,5.52,9.89,8.79,12.26,2.74,1.98,8.67,4.71,12.09,3.71,2.21-.65,3.75-1.99,3.97-4.26.08-.86.18-1.15-.59-1.6-.77-.46-4.23-2.07-4.97-2.22-1.22-.24-1.77,1.14-2.43,1.91-1.01,1.18-1.3,1.17-2.79.57-1.85-.74-3.98-2.27-5.32-3.68-.49-.52-2.4-2.84-2.42-3.41-.03-.78,2.13-2.08,2.13-3.12,0-.18-.12-.43-.19-.61-.46-1.27-1.3-3.21-1.93-4.41-.1-.18-.24-.51-.39-.64-.4-.37-1.49-.36-2.02-.3h0Z"/></svg>',
+    tel:'<svg viewBox="0 0 40 40" fill="currentColor" aria-hidden="true"><path d="M14.84,10.68c-.94,1.11-2.39,1.95-2.78,3.47-.45,1.72.33,2.95,1.19,4.34,2.16,3.5,5.27,6.53,8.82,8.61,1.26.73,2.31,1.27,3.82.85,2.55-.71,3.73-5.07,6.81-2.88l6.71,6.71c.89,1.11.75,2.42-.17,3.46-.76.86-1.75,1.88-2.58,2.65-5.06,4.68-13.43.58-18.22-2.63C11.63,30.7,4.25,22.81,1.29,15.1-.33,10.9-.91,6.48,2.47,3c.72-.74,1.69-1.73,2.48-2.37,1.01-.83,2.3-.84,3.31,0l6.66,6.66c.87,1.07.79,2.36-.08,3.39Z"/></svg>',
+    tg:'<svg viewBox="0 0 40 40" fill="currentColor" aria-hidden="true"><path d="M40,18.73v2.5c-.12.45-.11.96-.17,1.43-1.14,8.62-7.96,15.65-16.53,17.06l-2.05.26c-.83-.04-1.67.05-2.5,0C2.38,39.03-6,19.23,4.94,6.82,16.74-6.59,38.97,1.04,40,18.73h0ZM16.34,29.12l.74-.23,2.65-2.56,5.14,3.75c1.21.48,1.47-.18,1.73-1.18,1.29-4.96,1.98-10.23,3.22-15.22.17-1.18-.18-1.9-1.46-1.54-6.07,2.49-12.31,4.59-18.37,7.09-.72.3-3,1.1-1.21,1.87,1.46.63,3.32.88,4.82,1.51l.34.02,11.56-7.27c.19-.08.46-.13.6.06.02.11-.51.6-.62.7-2.86,2.71-5.93,5.21-8.79,7.93l-.35,5.08Z"/></svg>',
+    left:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg>',
+    right:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 5.5 16 12l-6.5 6.5"/></svg>',
+    close:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M7 7l10 10M17 7 7 17"/></svg>',
+    ext:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16 16 8M9.5 8H16v6.5"/></svg>',
+    hand:'<svg viewBox="0 0 30 32" fill="none" aria-hidden="true"><path d="M18.803 32H17.2877C14.1708 31.7635 11.3158 30.044 9.65876 27.5264C7.74491 24.6179 7.45741 21.1503 8.67284 18.0028L9.8808 14.8745C10.2652 13.8785 11.4343 13.4975 12.3854 13.8626L13.2951 14.2119L18.1692 1.42207C18.5984 0.29658 19.7939 -0.268255 20.9025 0.124455C21.9248 0.487086 22.6523 1.70532 22.2256 2.83499L18.4343 12.8733C19.1079 11.9241 20.3093 11.5665 21.3325 12.1397C22.3557 12.7129 22.6896 13.9345 22.2339 15.0349C22.9712 14.0147 24.2041 13.7548 25.1743 14.3422C26.1784 14.9497 26.4642 16.1629 25.9912 17.2859C26.6598 16.3559 27.7567 16.0025 28.7592 16.4787C29.6731 16.9132 30.2704 18.068 29.8769 19.1091L27.4866 25.4325C26.0782 29.1583 22.6995 31.6808 18.8038 31.9992L18.803 32Z" fill="currentColor"/> <path d="M10.4599 4.23789L5.97687 4.23538C5.46402 4.23538 5.04728 3.8151 5.04728 3.29789C5.04728 2.77985 5.46319 2.35956 5.97687 2.35956H10.455L10.368 2.26765C10.0109 1.89834 10.0142 1.3076 10.3754 0.942463C10.7408 0.573148 11.334 0.572312 11.7002 0.940792L13.4848 2.73723C13.7897 3.04388 13.7897 3.54103 13.4848 3.84852L11.6961 5.65332C11.3324 6.02012 10.7425 6.02096 10.3779 5.65332C10.0167 5.28985 10.0125 4.70078 10.3688 4.33147L10.4599 4.23705V4.23789Z" fill="currentColor"/> <path d="M4.34636 3.29789C4.34636 2.77967 3.9298 2.35956 3.41594 2.35956C2.90209 2.35956 2.48553 2.77967 2.48553 3.29789C2.48553 3.81611 2.90209 4.23622 3.41594 4.23622C3.9298 4.23622 4.34636 3.81611 4.34636 3.29789Z" fill="currentColor"/> <path d="M1.86083 3.29789C1.86083 2.77967 1.44427 2.35956 0.930416 2.35956C0.416561 2.35956 0 2.77967 0 3.29789C0 3.81611 0.416561 4.23622 0.930416 4.23622C1.44427 4.23622 1.86083 3.81611 1.86083 3.29789Z" fill="currentColor"/></svg>'
+  };
+  const PILL_ICON={left:IC.left,right:IC.right};
+
+  /* ---------- состояние ---------- */
+  const state={service:null,intent:null,branch:null,wish:'',vin:'',date:null,time:null,name:'',phone:''};
+  let current='welcome', history=[], busy=false, nudged=false, card=null;
+
+  const STEP={welcome:0,readiness:1,objection:1,wish:2,date:2,exit:2,contact:3,done:3};
+  const FINAL={exit:1,done:1};
+
+  /* ---------- DOM ---------- */
+  const $=id=>document.getElementById(id);
+  const root=$('dbsAsst'), panel=root.querySelector('.dbs-asst__panel'), stage=$('dbsStage'),
+        hint=$('dbsHint'), prog=[...$('dbsProgress').children], launcher=$('dbsLauncher'),
+        btnBack=$('dbsBack'), btnRestart=$('dbsRestart');
+  root.setAttribute('lang',lang); launcher.setAttribute('lang',lang);
+  $('dbsLauncherText').textContent=T.launcher; $('dbsLauncherShort').textContent=T.launcherShort; $('dbsLauncherSub').textContent=T.launcherSub;
+  launcher.setAttribute('aria-label',T.launcherAria);
+  btnBack.setAttribute('aria-label',T.back); btnRestart.setAttribute('aria-label',T.restart); $('dbsClose').setAttribute('aria-label',T.close);
+
+  const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function syncTab(){ if(CONFIG.syncPageTabs&&window.dbsSetTab) dbsSetTab(state.service==='detailing'?'detailing':'tech'); }
+
+  /* =========================================================
+     ОПИСАНИЕ КАРТОЧЕК
+     kind: choice — свайп = выбор; form — вправо «дальше», влево «назад»; final — без свайпа
+     ========================================================= */
+  function def(id){
+    const c=T[id];
+    const chipFor=e=>[T.svc[state.service],e].filter(Boolean).join(' · ');
+    switch(id){
+      case 'welcome': return {kind:'choice', bl:'svc', br:'det', title:c.title, text:c.text,
+        left:{label:c.l, aria:c.la, go:()=>{state.service='autoservis';syncTab();return 'readiness'}},
+        right:{label:c.r, aria:c.ra, go:()=>{state.service='detailing';syncTab();return 'readiness'}}};
+      case 'readiness': return {kind:'choice', bl:'price', br:'cal', title:c.title, text:c.text,
+        left:{label:c.l, go:()=>{state.intent='price';return 'objection'}},
+        right:{label:c.r, go:()=>{state.intent='book';state.branch='book';return 'wish'}}};
+      case 'objection': return {kind:'choice', bl:'sms', br:'price', title:c.title, text:c.text,
+        left:{label:c.r, go:()=>{state.branch='vin';return 'wish'}},
+        right:{label:c.l, go:()=>{state.branch='exit';return 'exit'}}};
+      case 'wish': {
+        const vin=state.branch==='vin';
+        return {kind:'form', bl:'sms', chip:chipFor(c.eyebrow), title:c.title, text:vin?'':c.text, body:`
+          ${vin?`<div class="field"><label for="fVin">${c.vin}</label><input class="input mono" id="fVin" maxlength="17" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="${c.vinPh}" value="${esc(state.vin)}"><div class="note"><i>i</i><span>${c.vinHint}</span></div></div>`:''}
+          <div class="field"><textarea class="textarea" id="fWish" maxlength="500" placeholder="${vin?c.phVin:c.ph}" aria-label="${c.title.replace(/<[^>]+>/g,'')}"${vin?' style="height:92px"':''}>${esc(state.wish)}</textarea>
+            <div class="counter"><span class="err" id="fWishErr"></span><span id="fWishCnt">${state.wish.length}/500</span></div></div>`,
+          left:{label:T.back, back:true}, right:{label:T.next, go:()=>state.branch==='book'?'date':'contact'}};
+      }
+      case 'date': {
+        const days=nextDays(12); if(!state.date) state.date=days[0].iso;
+        const slots=['08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','17:30','18:00'];
+        return {kind:'form', bl:'cal', chip:chipFor(c.eyebrow), title:c.title, text:c.text, body:`
+          <div class="days" role="listbox" aria-label="${c.day}">${days.map(d=>`<button type="button" class="day${d.iso===state.date?' is-on':''}" data-day="${d.iso}" role="option" aria-selected="${d.iso===state.date}"><small>${d.dow}</small><b>${d.d}</b></button>`).join('')}</div>
+          <div class="slots" role="listbox" aria-label="${c.time}">${slots.map(s=>`<button type="button" class="slot${s===state.time?' is-on':''}" data-time="${s}" role="option" aria-selected="${s===state.time}">${s}</button>`).join('')}</div>
+          <div class="err" id="fDateErr" style="margin-top:8px"></div>`,
+          left:{label:T.back, back:true}, right:{label:T.next, go:()=>'contact'}};
+      }
+      case 'contact': {
+        const vin=state.branch==='vin';
+        const sum=vin?`<b>${T.svc[state.service]||'—'}</b>${state.vin?' · VIN '+esc(state.vin):''}`:`<b>${T.svc[state.service]||'—'}</b> · ${whenText()}`;
+        return {kind:'form', bl:vin?'wa':'tel', chip:chipFor(c.eyebrow), title:vin?c.titleVin:c.titleBook, body:`
+          <div class="fields">
+            <div class="field"><label for="fName">${c.name}</label><input class="input" id="fName" autocomplete="name" placeholder="${c.namePh}" value="${esc(state.name)}"></div>
+            <div class="field"><label for="fPhone">${vin?c.phoneWa:c.phone}</label><input class="input" id="fPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="${c.phonePh}" value="${esc(state.phone||'+420 ')}"></div>
+          </div>
+          <div class="err" id="fPhoneErr" style="margin-top:6px"></div>
+          <div class="summary"><i>${vin?IC.wa:IC.cal}</i><span>${sum}</span></div>
+          <p class="consent">${c.consent}</p>`,
+          left:{label:T.back, back:true}, right:{label:T.send, go:()=>{submit();return 'done'}}};
+      }
+      case 'exit': return {kind:'final', bl:'price', chip:c.chip, title:c.title, text:c.text, body:miniContacts(),
+        right:{label:c.open, href:CONFIG.priceUrl, icon:'ext'}};
+      case 'done': {
+        const vin=state.branch==='vin', d=vin?T.doneVin:T.doneBook;
+        return {kind:'final', hot:true, bl:vin?'wa':'cal', chip:d.chip, title:d.title, text:d.text.replace('{when}',whenText()), body:miniContacts(),
+          right:{label:d.cta, href:vin?waLink():bookingLink(), blank:vin, icon:'ext'}};
+      }
+    }
+  }
+
+  function miniContacts(){
+    return `<div class="mini">
+      <a href="tel:${CONFIG.phone}"><span>${IC.tel}</span>${T.call}</a>
+      <a href="https://wa.me/${CONFIG.whatsapp}" target="_blank" rel="noopener"><span>${IC.wa}</span>WhatsApp</a>
+      <a href="https://t.me/${CONFIG.telegram}" target="_blank" rel="noopener"><span>${IC.tg}</span>Telegram</a>
+    </div>`;
+  }
+
+  function pillHTML(side,o,d){
+    const icon=o.icon?IC[o.icon]:(o.close?IC.close:PILL_ICON[side]);
+    const dot=`<span class="pill__dot" aria-hidden="true">${icon}</span>`;
+    const label=`<span class="pill__label">${o.label}</span>`;
+    const inner=side==='left'?dot+label:label+dot;
+    const cls=`pill pill--${side==='left'?'l':'r'}`;
+    const aria=o.aria?` aria-label="${o.aria}"`:'';
+    if(o.href) return `<a class="${cls}" href="${o.href}"${o.blank?' target="_blank" rel="noopener"':''} data-dir="${side}"${aria}>${inner}</a>`;
+    return `<button type="button" class="${cls}" data-dir="${side}"${aria}>${inner}</button>`;
+  }
+
+  function cardHTML(d){
+    const top=`<div class="sc__top">
+        <span class="sc__badge sc__badge--l" aria-hidden="true">${IC[d.bl]}</span>
+        ${d.br?`<span class="sc__badge sc__badge--r" aria-hidden="true">${IC[d.br]}</span>`:d.chip?`<span class="sc__chip">${d.chip}</span>`:''}
+      </div>`;
+    return `<div class="sc__bg" aria-hidden="true"><i class="sc__bg-rest"></i><i class="sc__bg-l"></i><i class="sc__bg-r"></i><i class="sc__bg-tex"></i></div>
+      ${top}
+      <div class="sc__body">
+        <h3 class="sc__title" id="dbsTitle">${d.title}</h3>
+        ${d.text?`<p class="sc__text">${d.text}</p>`:''}
+        ${d.body||''}
+      </div>
+      <div class="sc__acts">${d.left?pillHTML('left',d.left,d):''}${pillHTML('right',d.right,d)}</div>`;
+  }
+
+  /* =========================================================
+     ФИЗИКА КАРТЫ: dx/dy → поворот, градиент, свечение
+     ========================================================= */
+  const ease={
+    out:k=>1-Math.pow(1-k,3),
+    in:k=>k*k*k,
+    inOut:k=>k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2,
+    back:k=>{const c1=1.35,c3=c1+1;return 1+c3*Math.pow(k-1,3)+c1*Math.pow(k-1,2)}
+  };
+  function Card(el,d){
+    const s={dx:0,dy:0,op:1};
+    let raf=0, pending=null;
+    const W=()=>stage.clientWidth||400;
+    function apply(){
+      const p=Math.min(1,Math.abs(s.dx)/(W()*.36));
+      const rot=s.dx*.045;
+      el.style.transform=`translate3d(${s.dx.toFixed(2)}px,${s.dy.toFixed(2)}px,0) rotate(${rot.toFixed(3)}deg)`;
+      el.style.setProperty('--rot',rot.toFixed(3)+'deg');
+      if(!d.hot){
+        el.style.setProperty('--pl',s.dx<0?p.toFixed(3):0);
+        el.style.setProperty('--pr',s.dx>0?p.toFixed(3):0);
+      }
+      el.style.opacity=s.op;
+    }
+    function stop(){ if(raf){cancelAnimationFrame(raf);raf=0} if(pending){const r=pending;pending=null;r(false)} }
+    function to(target,dur,fn=ease.out){
+      stop();
+      return new Promise(res=>{
+        pending=res;
+        const from={...s}, t0=performance.now();
+        const tick=now=>{
+          const k=Math.min(1,(now-t0)/dur), e=fn(k);
+          for(const key in target) s[key]=from[key]+(target[key]-from[key])*e;
+          apply();
+          if(k<1) raf=requestAnimationFrame(tick);
+          else { raf=0; const r=pending; pending=null; r&&r(true); }
+        };
+        raf=requestAnimationFrame(tick);
+      });
+    }
+    return {el,d,s,apply,stop,to,W};
+  }
+
+  async function lean(dir){
+    const sign=dir==='left'?-1:1;
+    await card.to({dx:sign*card.W()*.36,dy:-4},reduce?1:260,ease.out);
+    await new Promise(r=>setTimeout(r,reduce?0:90));
+  }
+  async function flyOut(dir){
+    const sign=dir==='left'?-1:1, w=card.W();
+    await card.to({dx:sign*(w*1.25+220),dy:card.s.dy+50,op:0},reduce?1:400,ease.in);
+  }
+  async function dropOut(){
+    card.el.style.transition='transform .32s cubic-bezier(.4,0,.8,.4),opacity .3s';
+    card.el.style.transform='translate3d(0,40px,0) scale(.94)';
+    card.el.style.opacity='0';
+    await new Promise(r=>setTimeout(r,reduce?0:300));
+  }
+  function snapBack(){
+    card.to({dx:0,dy:0},520,ease.back);
+  }
+  async function shake(){
+    for(const [x,t] of [[-14,70],[12,90],[-7,80],[0,140]]) await card.to({dx:x},t,ease.inOut);
+  }
+
+  /* =========================================================
+     RENDER
+     ========================================================= */
+  function render(id){
+    current=id;
+    stage.querySelectorAll('.sc').forEach(n=>n.remove());
+    const d=def(id);
+    const el=document.createElement('article');
+    el.className=`sc sc--${d.kind} enter`;
+    if(d.hot) el.style.cssText='--pr:1';
+    el.innerHTML=cardHTML(d);
+    stage.appendChild(el);
+    card=Card(el,d);
+    el.addEventListener('animationend',()=>el.classList.remove('enter'),{once:true});
+
+    const step=STEP[id];
+    prog.forEach((p,i)=>p.classList.toggle('is-on',FINAL[id]?true:i<=step));
+    btnBack.disabled=!history.length||!!FINAL[id]&&id==='done';
+    btnRestart.disabled=id==='welcome';
+    hint.innerHTML=d.kind==='choice'?`${IC.hand}<span>${T.hintSwipe}</span>`:d.kind==='form'?`${IC.hand}<span>${T.hintForm}</span>`:'';
+
+    if(d.kind!=='final') bindDrag(card);
+    bindForm(id,el);
+    refreshReady();
+    if(id==='welcome'&&!nudged&&!reduce){ nudged=true; setTimeout(()=>nudge(card),900); }
+  }
+
+  async function nudge(c){
+    if(c!==card||c.el.dataset.touched) return;
+    const w=c.W();
+    const steps=[[-w*.2,420,ease.inOut],[w*.2,640,ease.inOut],[0,560,ease.back]];
+    for(const [x,t,f] of steps){ if(!(await c.to({dx:x},t,f))) return; }
+  }
+
+  /* =========================================================
+     DRAG
+     ========================================================= */
+  let suppressClick=false;
+  function bindDrag(c){
+    const el=c.el;
+    let st=null, dragging=false, samples=[];
+    el.addEventListener('pointerdown',e=>{
+      if(busy||e.button>0||c!==card) return;
+      if(e.target.closest('input,textarea,select,.days,.summary,a[href]:not(.pill)')) return;
+      el.dataset.touched='1';
+      c.stop(); el.classList.remove('enter');
+      st={x:e.clientX,y:e.clientY,dx0:c.s.dx,dy0:c.s.dy,id:e.pointerId};
+      dragging=false; samples=[{x:e.clientX,t:performance.now()}];
+    });
+    el.addEventListener('pointermove',e=>{
+      if(!st||e.pointerId!==st.id) return;
+      const mx=e.clientX-st.x, my=e.clientY-st.y;
+      if(!dragging){
+        if(Math.abs(mx)>6&&Math.abs(mx)>Math.abs(my)*1.1){ dragging=true; el.setPointerCapture(st.id); el.classList.add('is-drag'); }
+        else if(Math.abs(my)>10){ st=null; return; }
+        else return;
+      }
+      c.s.dx=st.dx0+mx; c.s.dy=st.dy0+my*.22; c.apply();
+      samples.push({x:e.clientX,t:performance.now()}); if(samples.length>5) samples.shift();
+    });
+    const up=e=>{
+      if(!st||e.pointerId!==st.id) return;
+      const wasDrag=dragging; st=null; dragging=false; el.classList.remove('is-drag');
+      if(!wasDrag) return;
+      suppressClick=true; setTimeout(()=>suppressClick=false,0);
+      const a=samples[0], b=samples[samples.length-1];
+      const v=(b.x-a.x)/Math.max(1,b.t-a.t);
+      const dx=c.s.dx, w=c.W();
+      if(e.type!=='pointercancel'&&(Math.abs(dx)>w*.28||(Math.abs(v)>.55&&Math.abs(dx)>34&&Math.sign(v)===Math.sign(dx)))) choose(dx<0?'left':'right',{dragged:true});
+      else snapBack();
+    };
+    el.addEventListener('pointerup',up); el.addEventListener('pointercancel',up);
+  }
+
+  /* =========================================================
+     ВЫБОР / НАВИГАЦИЯ
+     ========================================================= */
+  async function choose(dir,{dragged=false}={}){
+    if(busy) return;
+    const d=card.d, side=dir==='left'?d.left:d.right;
+    if(!side) return snapBack();
+    if(side.close){ return close(); }
+    if(side.href){ location.href=side.href; return; }
+    if(side.back){
+      busy=true; if(!dragged) await lean('left'); await flyOut('left');
+      render(history.pop()||'welcome'); busy=false; focusFirst(); return;
+    }
+    if(d.kind==='form'&&!validate(current)){ if(dragged) snapBack(); else shake(); return; }
+    busy=true;
+    track('swipe',{card:current,dir});
+    const next=side.go();
+    history.push(current);
+    if(!dragged) await lean(dir);
+    await flyOut(dir);
+    render(next); busy=false; focusFirst();
+  }
+
+  async function goBack(){
+    if(!history.length||busy) return;
+    busy=true; card.stop(); await dropOut();
+    render(history.pop()); busy=false;
+  }
+  async function restart(silent){
+    Object.assign(state,{service:null,intent:null,branch:null,wish:'',vin:'',date:null,time:null,name:'',phone:''});
+    history=[];
+    if(silent){ stage.querySelectorAll('.sc').forEach(n=>n.remove()); current='welcome'; card=null; return; }
+    if(busy) return; busy=true; if(card){card.stop(); await dropOut();} render('welcome'); busy=false;
+  }
+  function focusFirst(){
+    if(!matchMedia('(min-width:601px)').matches) return;
+    const f=stage.querySelector('input,textarea'); f&&f.focus({preventScroll:true});
+  }
+
+  /* =========================================================
+     ФОРМЫ + ВАЛИДАЦИЯ
+     ========================================================= */
+  function isValid(id){
+    if(id==='wish'){
+      const vinOk=/^[A-HJ-NPR-Z0-9]{17}$/.test(state.vin);
+      if(state.branch==='vin'&&state.vin&&!vinOk) return false;
+      return state.wish.trim().length>=3||(state.branch==='vin'&&vinOk);
+    }
+    if(id==='date') return !!(state.date&&state.time);
+    if(id==='contact') return (state.phone||'').replace(/\D/g,'').length>=9;
+    return true;
+  }
+  function refreshReady(){
+    const r=stage.querySelector('.sc--form .pill--r, .sc--final .pill--r');
+    if(r) r.classList.toggle('is-ready',isValid(current));
+  }
+  function validate(id){
+    if(isValid(id)){ track(id,{}); return true; }
+    if(id==='wish'){
+      const err=stage.querySelector('#fWishErr');
+      if(state.branch==='vin'&&state.vin&&!/^[A-HJ-NPR-Z0-9]{17}$/.test(state.vin)){ err.textContent=T.wish.errVin; stage.querySelector('#fVin').focus(); }
+      else { err.textContent=T.wish.errText; stage.querySelector('#fWish').focus(); }
+    }
+    if(id==='date') stage.querySelector('#fDateErr').textContent=T.date.err;
+    if(id==='contact'){ stage.querySelector('#fPhoneErr').textContent=T.contact.err; stage.querySelector('#fPhone').focus(); }
+    return false;
+  }
+  function bindForm(id,el){
+    if(id==='wish'){
+      const ta=el.querySelector('#fWish'), cnt=el.querySelector('#fWishCnt'), vin=el.querySelector('#fVin'), err=el.querySelector('#fWishErr');
+      ta.addEventListener('input',()=>{state.wish=ta.value;cnt.textContent=ta.value.length+'/500';cnt.classList.toggle('warn',ta.value.length>480);err.textContent='';refreshReady()});
+      vin&&vin.addEventListener('input',()=>{vin.value=vin.value.toUpperCase().replace(/[^A-HJ-NPR-Z0-9]/g,'');state.vin=vin.value;err.textContent='';refreshReady()});
+    }
+    if(id==='date'){
+      el.addEventListener('click',e=>{
+        const d=e.target.closest('[data-day]'), s=e.target.closest('[data-time]');
+        if(d){state.date=d.dataset.day;el.querySelectorAll('.day').forEach(b=>{const on=b===d;b.classList.toggle('is-on',on);b.setAttribute('aria-selected',on)})}
+        if(s){state.time=s.dataset.time;el.querySelectorAll('.slot').forEach(b=>{const on=b===s;b.classList.toggle('is-on',on);b.setAttribute('aria-selected',on)})}
+        if(d||s){el.querySelector('#fDateErr').textContent='';refreshReady()}
+      });
+      const strip=el.querySelector('.days'), on=el.querySelector('.day.is-on');
+      if(on) requestAnimationFrame(()=>{strip.scrollLeft=Math.max(0,on.offsetLeft-strip.clientWidth/2+on.offsetWidth/2)});
+    }
+    if(id==='contact'){
+      const n=el.querySelector('#fName'), p=el.querySelector('#fPhone');
+      n.addEventListener('input',()=>state.name=n.value);
+      p.addEventListener('input',()=>{state.phone=p.value;el.querySelector('#fPhoneErr').textContent='';refreshReady()});
+    }
+  }
+
+  /* =========================================================
+     ОТПРАВКА / ИНТЕГРАЦИЯ
+     ========================================================= */
+  function payload(){
+    return {
+      source:'dbs-swipe-assistant', lang,
+      service:state.service, flow:state.branch, note:state.wish.trim(), vin:state.vin||null,
+      date:state.branch==='book'?state.date:null, time:state.branch==='book'?state.time:null,
+      name:state.name.trim()||null, phone:state.phone.trim(),
+      channel:state.branch==='vin'?'whatsapp':'phone',
+      page:location.href, ts:new Date().toISOString()
+    };
+  }
+  function submit(){
+    const data=payload();
+    document.dispatchEvent(new CustomEvent('dbs-assistant:submit',{detail:data}));
+    if(window.dataLayer) window.dataLayer.push({event:'dbs_assistant_submit',flow:data.flow,service:data.service});
+    if(CONFIG.submitEndpoint) fetch(CONFIG.submitEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),keepalive:true}).catch(()=>{});
+    console.info('[DBS assistant] submit',data);
+  }
+  function bookingLink(){
+    const p=new URLSearchParams({source:'assistant',service:state.service||'',date:state.date||'',time:state.time||'',note:state.wish.slice(0,500)});
+    return CONFIG.bookingUrl+'?'+p.toString();
+  }
+  function waLink(){
+    const txt=[`DBS – ${T.svc[state.service]||''}`,state.vin?`VIN: ${state.vin}`:'',state.wish].filter(Boolean).join('\n');
+    return `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(txt)}`;
+  }
+  function track(ev,data){ if(window.dataLayer) window.dataLayer.push(Object.assign({event:'dbs_assistant_'+ev},data)); }
+
+  function nextDays(n){
+    const out=[], d=new Date(); d.setHours(12,0,0,0);
+    while(out.length<n){
+      d.setDate(d.getDate()+1);
+      if(d.getDay()===0) continue;
+      const iso=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+      out.push({iso,d:d.getDate(),dow:T.days[d.getDay()]});
+    }
+    return out;
+  }
+  function whenText(){
+    if(!state.date) return '—';
+    const [y,m,d]=state.date.split('-').map(Number), dt=new Date(y,m-1,d);
+    return `${T.days[dt.getDay()]} ${d}. ${m}.${state.time?' · '+state.time:''}`;
+  }
+
+  /* =========================================================
+     OPEN / CLOSE
+     ========================================================= */
+  let lastFocus=null;
+  function open(){
+    if(root.classList.contains('is-open')) return;
+    lastFocus=document.activeElement;
+    root.classList.add('is-open'); root.setAttribute('aria-hidden','false');
+    launcher.classList.add('is-hidden');
+    document.body.classList.add('is-locked');
+    if(!stage.querySelector('.sc')) render('welcome');
+    setTimeout(()=>panel.focus({preventScroll:true}),60);
+    track('open',{});
+  }
+  function close(){
+    if(!root.classList.contains('is-open')) return;
+    root.classList.remove('is-open'); root.setAttribute('aria-hidden','true');
+    document.body.classList.remove('is-locked');
+    launcher.classList.remove('is-hidden');
+    store.set('dbsAsstSnooze',String(Date.now()));
+    if(FINAL[current]) setTimeout(()=>restart(true),400);
+    lastFocus&&lastFocus.focus&&lastFocus.focus({preventScroll:true});
+    track('close',{card:current});
+  }
+
+  root.addEventListener('click',e=>{
+    if(e.target.closest('[data-close]')&&!e.target.closest('.pill')) return close();
+    const pill=e.target.closest('.pill');
+    if(pill&&card&&card.el.contains(pill)){
+      if(suppressClick){ e.preventDefault(); return; }
+      const d=card.d, side=pill.dataset.dir==='left'?d.left:d.right;
+      if(side.href) return;
+      e.preventDefault(); choose(pill.dataset.dir);
+    }
+  });
+  btnBack.addEventListener('click',goBack);
+  btnRestart.addEventListener('click',()=>restart(false));
+  launcher.addEventListener('click',open);
+  document.querySelectorAll('[data-open-assistant]').forEach(b=>b.addEventListener('click',open));
+  document.addEventListener('keydown',e=>{
+    if(!root.classList.contains('is-open')) return;
+    if(e.key==='Escape') return close();
+    const typing=/INPUT|TEXTAREA/.test(document.activeElement.tagName);
+    if(!typing&&card&&card.d.kind==='choice'&&(e.key==='ArrowLeft'||e.key==='ArrowRight')){ e.preventDefault(); choose(e.key==='ArrowLeft'?'left':'right'); }
+    const isEnter=e.key==='Enter'||e.code==='Enter'||e.code==='NumpadEnter'||e.keyCode===13;
+    if(isEnter&&document.activeElement.tagName==='INPUT'&&card&&card.d.kind==='form'){ e.preventDefault(); choose('right'); }
+    if(e.key==='Tab'){
+      const f=[...panel.querySelectorAll('button:not(:disabled),a[href],input,textarea')].filter(x=>x.offsetParent);
+      if(!f.length) return;
+      if(e.shiftKey&&document.activeElement===f[0]){e.preventDefault();f[f.length-1].focus()}
+      else if(!e.shiftKey&&document.activeElement===f[f.length-1]){e.preventDefault();f[0].focus()}
+    }
+  });
+
+  /* ---------- лаунчер: появление + два «подмигивания» ---------- */
+  const force=new URLSearchParams(location.search).has('assistant');
+  const snoozed=Number(store.get('dbsAsstSnooze')||0);
+  const snoozeActive=Date.now()-snoozed<CONFIG.snoozeDays*864e5;
+  setTimeout(()=>{ if(!root.classList.contains('is-open')) launcher.classList.remove('is-hidden'); },force?0:700);
+  if(force||!snoozeActive) setTimeout(open,force?300:CONFIG.autoOpenDelay);
+  if(!reduce){
+    const peek=()=>{ if(root.classList.contains('is-open')||launcher.matches(':hover')) return; launcher.classList.add('is-peek'); setTimeout(()=>launcher.classList.remove('is-peek'),1100); };
+    setTimeout(peek,snoozeActive?2600:9000); setTimeout(peek,snoozeActive?14000:22000);
+  }
+
+  window.DBSAssistant={open,close,restart:()=>restart(false),config:CONFIG,state};
+})();
+</script>
+</body>
+</html>
